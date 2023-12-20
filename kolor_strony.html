@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zmiana losowego koloru tła strony</title>
+  <style>
+    body {
+      transition: background-color 0.5s ease;
+      font-size: 20px;
+    }
+
+    .main-content {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <h1>Zmiana losowego koloru tła strony</h1>
+    <button onclick="zmienLosowyKolor()">Zmień kolor tła</button>
+  </div>
+
+  <script>
+    function zmienLosowyKolor() {
+      var kolor = losowyKolor();
+      window.parent.postMessage({ type: 'changeColor', color: kolor }, '*');
+    }
+
+    function losowyKolor() {
+      var kolor = 'rgb(';
+      for (var i = 0; i < 3; i++) {
+        kolor += Math.floor(Math.random() * 256); // Wygeneruj liczbę losową z zakresu 0-255 dla każdej składowej koloru
+        if (i < 2) {
+          kolor += ', ';
+        }
+      }
+      kolor += ')';
+      return kolor;
+    }
+  </script>
+</body>
+<script src="skrypt_klikniecie_iframe.js"></script>
+</html>

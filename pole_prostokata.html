@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Obliczanie pola prostokąta</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        font-size: 20px;
+    }
+
+    .main-content {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <h1>Obliczanie pola prostokąta</h1>
+    
+    <label for="dlugoscA">Długość boku a:</label>
+    <input type="number" id="dlugoscA" placeholder="Wprowadź boku a">
+    <br>
+    
+    <label for="dlugoscB">Długość boku b:</label>
+    <input type="number" id="dlugoscB" placeholder="Wprowadź boku b">
+    <br>
+    
+    <button onclick="obliczPole()">Oblicz pole</button>
+    <p id="wynik"></p>
+  </div>
+
+  <script>
+    function Prostokat(a, b) {
+      this.a = a; // Długość boku a
+      this.b = b; // Długość boku b
+    }
+
+    Prostokat.prototype.obliczPole = function() {
+      return this.a * this.b;
+    };
+
+    function obliczPole() {
+      var dlugoscA = parseFloat(document.getElementById('dlugoscA').value);
+      var dlugoscB = parseFloat(document.getElementById('dlugoscB').value);
+
+      var prostokat = new Prostokat(dlugoscA, dlugoscB);
+      var pole = prostokat.obliczPole();
+
+      if (!isNaN(pole) && prostokat.a > 0 && prostokat.b > 0) {
+        document.getElementById('wynik').innerText = 'Pole prostokąta wynosi: ' + pole;
+      } else {
+        document.getElementById('wynik').innerText = 'Wprowadź poprawne długości boków!';
+      }
+    }
+  </script>
+</body>
+<script src="skrypt_klikniecie_iframe.js"></script>
+</html>

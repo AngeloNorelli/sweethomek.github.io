@@ -1,0 +1,170 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #e0dfdf;
+    transition: background-color 0.5s ease;
+}
+
+.filler {
+    min-height: 93px;
+}
+
+.top-bar {
+    background-color: #333;
+    width: 100%;
+    color: #ccc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.top-bar-left {
+    padding-left: 20px;
+}
+
+.spacer {
+    margin-bottom: 5px;
+    max-width: 40%;
+}
+
+.small_title {
+    display: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.bar-title {
+    text-align: center;
+    display: flex;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.tab-container {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tab {
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    background-color: #444;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.tab:hover {
+    color: rgb(88, 244, 255);
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.submenu .subsite {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu .subsite:hover {
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content iframe {
+    width: 100%;
+}
+
+.sidebar {
+    width: 20%; 
+    margin-top: 30px; 
+    margin-bottom: 30px; 
+    margin-right: 5px
+}
+
+.sidebar .main-content {
+    margin-bottom: 30px; 
+    color: #e0dfdf; 
+    background-color: #333; 
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-icons a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+    .filler {
+        min-height: 120px;
+    }
+
+    .small_title {
+        display: inline;
+        margin-left: 20px;
+    }
+
+    .bar-title {
+        display: none;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 93%;
+        margin-left: 20px;
+    }
+}

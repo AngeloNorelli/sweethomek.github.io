@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        font-size: 20px;
+    }
+
+    .main-content {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+    }
+</style>
+</head>
+<body>
+  <div class="main-content">
+    <h1>Prosty kalkulator</h1>
+    <input type="number" id="liczba1" placeholder="Wprowadź pierwszą liczbę">
+    <input type="number" id="liczba2" placeholder="Wprowadź drugą liczbę">
+    <button onclick="oblicz('suma')">Suma</button>
+    <button onclick="oblicz('roznica')">Odejmowanie</button>
+    <button onclick="oblicz('iloczyn')">Mnożenie</button>
+    <button onclick="oblicz('iloraz')">Dzielenie</button>
+    <p>Wynik: <span id="wynik"></span></p>
+  </div>
+
+  <script>
+    function oblicz(operacja) {
+      var liczba1 = parseFloat(document.getElementById('liczba1').value);
+      var liczba2 = parseFloat(document.getElementById('liczba2').value);
+      var wynik = 0;
+
+      switch (operacja) {
+        case 'suma':
+          wynik = liczba1 + liczba2;
+          break;
+        case 'roznica':
+          wynik = liczba1 - liczba2;
+          break;
+        case 'iloczyn':
+          wynik = liczba1 * liczba2;
+          break;
+        case 'iloraz':
+          if (liczba2 !== 0) {
+            wynik = liczba1 / liczba2;
+          } else {
+            wynik = "Nie można dzielić przez zero!";
+          }
+          break;
+        default:
+          wynik = "Wybierz operację";
+          break;
+      }
+
+      if (!isNaN(wynik)) {
+        document.getElementById('wynik').innerText = wynik;
+      } else {
+        document.getElementById('wynik').innerText = wynik;
+      }
+    }
+  </script>
+</body>
+<script src="skrypt_klikniecie_iframe.js"></script>
+</html>
