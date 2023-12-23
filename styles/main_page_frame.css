@@ -1,4 +1,4 @@
-
+/* kafelki */
 .tile-container {
     display: flex;
     flex-wrap: wrap;
@@ -36,8 +36,6 @@
     cursor: pointer;
     border-radius: 15px;
     justify-content: center;
-
-
 }
 
 .tile h2 {
@@ -64,8 +62,6 @@
     margin-bottom: 10px;
 }
 
-
-    
 #formContainer input,
 #formContainer textarea {
     width: 98%;
@@ -76,7 +72,6 @@
     background-color: #555;
     color: #fff;
 }
-
 
 #formContainer input[type="submit"] {
     display: flex;
@@ -94,12 +89,10 @@
     background-color: #45a049;
 }
 
-
 #formContainer input:hover,
 #formContainer textarea:hover {
     background-color: #444;
 }
-
 
 #formContainer textarea {
     resize: vertical;
