@@ -1,14 +1,10 @@
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-}
-
 .tile-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 20px;
+    min-height: 20vh; 
 }
 
 .tile {
@@ -19,6 +15,29 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f8f8f8;
+    order: 1;
+    min-height: 100px;
+}
+
+.tile-container-button {
+    display: flex;
+    width: 15vh;
+    align-items: center;
+    order: 2;
+    position: relative; 
+    min-height: 150px;
+}
+
+.tile-container-button button {
+    padding: 10px;
+    font-size: 46px;
+    height: 60%;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 15px;
+    justify-content: center;
+
+
 }
 
 .tile h2 {
@@ -28,4 +47,60 @@ body {
 
 .tile p {
     color: #666;
+}
+
+/* formularz */
+#formContainer {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    width: 40%;
+}
+
+#formContainer label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+    
+#formContainer input,
+#formContainer textarea {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+}
+
+
+#formContainer input[type="submit"] {
+    display: flex;
+    background-color: #4CAF50;
+    font-size: 18px;
+
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 7px;
+}
+
+/* jakis fancy shit XD */
+#formContainer input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+#formContainer input:hover,
+#formContainer textarea:hover {
+    background-color: #444;
+}
+
+
+#formContainer textarea {
+    resize: vertical;
 }

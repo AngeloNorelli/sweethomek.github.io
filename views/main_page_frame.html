@@ -9,9 +9,23 @@
 
 <body>
     <div class="tile-container" id="tileContainer">
+
+    <div class="tile-container-button">
+        <button onclick="toggleForm()" id="add_button">+</button>
     </div>
 
-    <button onclick="addNewTile()">Add New Tile</button>
+    </div>
+
+    <!-- Formularz aktywowany przy nacisnieciu przycisku -->
+    <div id="formContainer" style="display: none;">
+        <form id="tileForm" onsubmit="addNewTile(event)">
+            <label for="title">Nazwa Pomieszczenia:</label>
+            <input type="text" id="title" name="title" required><br>
+            <label for="description">Opis:</label>
+            <input type="text" id="description" name="description" required><br>
+            <input type="submit" value="Dodaj Pomieszczenie">
+        </form>
+    </div>
 
     <script src="../scripts/main_page_frame.js""></script>
 </body>
