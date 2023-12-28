@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <script src="scripts/script.js"></script>
+
     <div class="top-bar">
         <div class="top-bar-left">
             <div class="tab" onclick="toggleSubmenu(showSubpage('strona_glowna'))">Strona  Główna</div>
@@ -18,7 +20,7 @@
         </div>
 
         <div class="bar-title">
-            Angelo Norelli
+            Smart Home
         </div>
 
         <!-- PRZESTAWIŁEM SUBMENU NA PRAWO -->
@@ -35,50 +37,38 @@
     </div>
     <div class="filler"></div>
 
-    <!-- TUTAJ DODALEM NOWY WIDOK DO IFRAME-->
+    <!-- WIDOK GŁÓWNEJ STRONY -->
     <div class="container">
         <div class="main-content" style="width: 100%;">
             <div id="strona_glowna" class="content">
                 <iframe src="views/main_page_frame.html" frameborder="0" scrolling="no" style="height: 710px;"></iframe>
             </div>
-    <!-- END -->
-            <div id="zakladka1-content" class="content" style="display: none;">
-                <iframe src="prosty_kalkulator.html" frameborder="0" scrolling="no" style="height: 300px;"></iframe>
-            </div>
 
+    <!-- WIDOK - "TWOJE KONTO" -->
+            <div id="zakladka1-content" class="content" style="display: none;">
+                <iframe src="views/options_page.html" frameborder="0" scrolling="no" style="height: 750px;"></iframe>
+            </div>
+    
+    <!-- OPCJA TRYB NOCNY TODO: -->
             <div id="zakladka2-content" class="content" style="display: none;">
                 <iframe src="fibonacci.html" frameborder="0" scrolling="no" style="height: 350px;"></iframe>
             </div>
-
+    
+    <!-- OPCJA WYLOGOWANIA TODO -->
             <div id="zakladka3-content" class="content" style="display: none;">
                 <iframe src="pole_prostokata.html" frameborder="0" scrolling="no" style="height: 350px;"></iframe>
             </div>
-
-            <div id="projekty" class="content" style="display: none;">
-                <iframe src="projekty.html" frameborder="0" scrolling="no" style="height: 1690px;"></iframe>
-            </div>
-
-            <div id="kolor_strony" class="content" style="display: none;">
-                <iframe src="kolor_strony.html" frameborder="0" scrolling="no" style="height: 250px;"></iframe>
-            </div>
         </div>
     </div>
-
-     <!-- USUNĄŁEM NIEPOTRZEBNY SIDEBAR -->
-
-    <script src="script.js"></script>
 </body>
 
 <footer id="footer">
     <div class="footer-title">Kontakt</div>
     <div class="footer-icons">
-        <a href="mailto:angnorelli@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100004182914077" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/angelo_junior_norelli/#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://github.com/AngeloNorelli" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:angelo.norelli@student.uj.edu.pl"><i class="fas fa-envelope-open-text"></i></a>
+        <a href="https://github.com/AngeloNorelli/sweethomek.github.io" target="_blank"><i class="fab fa-github"></i></a>
+
     </div>
-    <p>&copy; 2023 Angelo Norelli</p>
+    <p>&copy; Projekt 'Inteligenty Dom' Grupa D</p>
 </footer>
 
 <!-- Biblioteka Font Awesome - ikony -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opcje</title>
+  <link rel="stylesheet" href="../styles/options_page.css">
+</head>
+<body>
+    <script src="../scripts/options_page.js"></script>
+
+    <div class="options-container">
+
+        <div class="notify-container">
+            <h3>Włącz Powiadomienia</h3>
+            <div class="toggle-switch">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            </div>
+        </div>
+        <div class="subscription-section">
+            <h3>Subskrypcja</h3>
+            <div class="subscription-plans">
+                <div class="subscription-plan" data-duration="30">
+                    <label class="switch">
+                        <input type="checkbox" name="plan1" onclick="handleSubscriptionPlan(this)">
+                        <span class="slider"></span>
+                    </label>
+                    Plan 1 - 30 dni
+                </div>
+                <div class="subscription-plan" data-duration="60">
+                    <label class="switch">
+                        <input type="checkbox" name="plan2" onclick="handleSubscriptionPlan(this)">
+                        <span class="slider"></span>
+                    </label>
+                    Plan 2 - 60 dni
+                </div>
+                <div class="subscription-plan" data-duration="90">
+                    <label class="switch">
+                        <input type="checkbox" name="plan3" onclick="handleSubscriptionPlan(this)">
+                        <span class="slider"></span>
+                    </label>
+                    Plan 3 - 90 dni
+                </div>
+            </div>
+    
+            <div class="active-plan">
+                Aktywny plan: <span id="active-plan">Brak</span>
+            </div>
+    
+            <div class="days-left">
+                Dni do wygaśnięcia: <span id="days-left">0</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
