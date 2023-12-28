@@ -60,4 +60,29 @@ window.addEventListener('message', function(event) {
             submenu.style.display = 'none';
         });
     }
+
+    if(event.data.type === 'subpage') {
+        // Utwórz div dla strony głównej
+        var nowyPokoj = document.createElement("div");
+        nowyPokoj.id = event.data.page;
+        nowyPokoj.classList.add("content");
+
+        // Utwórz iframe
+        var iframeElement = document.createElement("iframe");
+        iframeElement.src = "views/roomtemplate.html";
+        // powyżej powinna być nazwa jako zmienna, dla każdej podstrony powinien być generowany osoby plik html (który dziedziczy po roomtamplate)
+        //  1) tworzymy kopię pliku roomtemplate.html i zmieniamy dla niej nazwę na nazwę podstrony pomieszczenia,
+        //  2) w ten sposób kafelki z różnych stron nie będą nie siebie wpływać, będą różne na każdej podstronie,
+        //  3) przez to mogą się identycznie nazywać, tzn. można będzie je rozróżniać na podstawie podstrony pomieszczenia, w którym się znajdują.
+        iframeElement.style.height = "710px";
+        iframeElement.frameBorder = "0";
+
+        // Dodaj iframe do diva strony głównej
+        nowyPokoj.appendChild(iframeElement);
+
+        var cotainer = document.getElementById('main-content');
+        cotainer.appendChild(nowyPokoj);
+
+        showSubpage(event.data.page);
+    }
 });

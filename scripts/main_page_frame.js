@@ -1,3 +1,15 @@
+function showSubpage(pageID) {
+    const page = document.getElementById(pageID);
+    const allPages = document.querySelectorAll('.content');
+
+    allPages.forEach(function(item) {
+        if (item !== page) {
+            item.style.display = 'none';
+        } else {
+            item.style.display = 'block'
+        }
+    });
+}
 
 function toggleForm() {
     var formContainer = document.getElementById("formContainer");
@@ -15,11 +27,16 @@ function addNewTile(event) {
     var description = document.getElementById("description").value;
 
     var newTile = document.createElement("div");
+
+    newTile.addEventListener('click', function() {
+        window.parent.postMessage({type: 'subpage', page: title}, '*');
+    });
     newTile.classList.add("tile");
 
     newTile.innerHTML = `
         <h2>${title}</h2>
         <p>${description}</p>`;
+
 
     var tileContainer = document.getElementById("tileContainer");
     tileContainer.appendChild(newTile);

@@ -1,3 +1,3 @@
 document.addEventListener('click', function() {
-    window.parent.postMessage('clicked', '*');
+    window.parent.postMessage({type: 'subpage', page: 'dupa'});
 });
