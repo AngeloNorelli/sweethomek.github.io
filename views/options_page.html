@@ -10,7 +10,7 @@
     <script src="../scripts/options_page.js"></script>
 
     <div class="options-container">
-        
+        <!-- Wlaczenie powiadomien-->
         <div class="left-container">
             <div class="notify-container">
                 <h3>Włącz Powiadomienia</h3>
@@ -26,15 +26,12 @@
                 <!-- Formularz "Kontakt ze Serwisem" -->
                 <form id="contactForm" style="margin-bottom: 20px;">
                     <h3>Kontakt ze Serwisem</h3>
-                    <!-- Pole opisu sytuacji -->
                     <label for="description">Opis sytuacji:</label>
                     <textarea id="description" name="description" rows="4" cols="50"></textarea>
 
-                    <!-- Pole wyboru terminu -->
                     <label for="appointment">Wybierz termin:</label>
                     <input type="datetime-local" id="appointment" name="appointment">
 
-                    <!-- Przycisk do wysłania formularza -->
                     <input type="button" value="Wyślij zgłoszenie" onclick="submitForm()">
                 </form>
 
@@ -44,8 +41,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="subscription-section">
             <h3>Subskrypcja</h3>
             <div class="subscription-plans">
