@@ -26,3 +26,11 @@ function handleSubscriptionPlan(checkbox) {
     daysLeftElement.textContent = "0";
   }
 }
+
+
+function submitForm() {
+    document.getElementById('notify').style.display = 'block';
+    setTimeout(function() {
+        document.getElementById('notify').style.display = 'none';
+    }, 3000); 
+}
