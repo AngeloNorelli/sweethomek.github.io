@@ -62,26 +62,48 @@ window.addEventListener('message', function(event) {
     }
 
     if(event.data.type === 'subpage') {
-        // Utwórz div dla strony głównej
-        var nowyPokoj = document.createElement("div");
-        nowyPokoj.id = event.data.page;
-        nowyPokoj.classList.add("content");
+        var checkForExistance = document.getElementById(event.data.page)
+        // Skrypt z dodawaniem kafelka daje na stałe event listenera i za każdym razem jak kafelek jest naciśnięty
+        // on będzie tworzył kolejne divy, które już powstały dla danego pokoju, więc dodaję sprawdzenie, czy już przypadkiem go nie było.
+        if(!checkForExistance) {   
+            // Utwórz div dla strony głównej
+            var nowyPokoj = document.createElement("div");
+            nowyPokoj.id = event.data.page;
+            nowyPokoj.classList.add("content");
 
-        // Utwórz iframe
-        var iframeElement = document.createElement("iframe");
-        iframeElement.src = "views/roomtemplate.html";
-        // powyżej powinna być nazwa jako zmienna, dla każdej podstrony powinien być generowany osoby plik html (który dziedziczy po roomtamplate)
-        //  1) tworzymy kopię pliku roomtemplate.html i zmieniamy dla niej nazwę na nazwę podstrony pomieszczenia,
-        //  2) w ten sposób kafelki z różnych stron nie będą nie siebie wpływać, będą różne na każdej podstronie,
-        //  3) przez to mogą się identycznie nazywać, tzn. można będzie je rozróżniać na podstawie podstrony pomieszczenia, w którym się znajdują.
-        iframeElement.style.height = "710px";
-        iframeElement.frameBorder = "0";
+            // Utwórz iframe
+            var iframeElement = document.createElement("iframe");
+            iframeElement.src = "views/roomtemplate.html";
+            // powyżej powinna być nazwa jako zmienna, dla każdej podstrony powinien być generowany osoby plik html (który dziedziczy po roomtamplate)
+            //  1) tworzymy kopię pliku roomtemplate.html i zmieniamy dla niej nazwę na nazwę podstrony pomieszczenia,
+            //  2) w ten sposób kafelki z różnych stron nie będą nie siebie wpływać, będą różne na każdej podstronie,
+            //  3) przez to mogą się identycznie nazywać, tzn. można będzie je rozróżniać na podstawie podstrony pomieszczenia, w którym się znajdują.
+            iframeElement.style.height = "710px";
+            iframeElement.frameBorder = "0";
 
-        // Dodaj iframe do diva strony głównej
-        nowyPokoj.appendChild(iframeElement);
+            // Utwórz strzałkę w burgerze przekierowującą na podstronę
+            var arrowInBurger = document.createElement("div");
+            arrowInBurger.classList.add("arrow");
+            arrowInBurger.innerText = '>';
+            
+            // Utwórz div dla burgerka
+            var burgerElement = document.createElement("div");
+            burgerElement.classList.add("subsite");
+            burgerElement.innerText = event.data.page;
+            burgerElement.addEventListener('click', function() {
+                showSubpage(event.data.page)
+            });
 
-        var cotainer = document.getElementById('main-content');
-        cotainer.appendChild(nowyPokoj);
+            var sideContainer = document.getElementById('side-bar');
+            burgerElement.appendChild(arrowInBurger);
+            sideContainer.appendChild(burgerElement);
+
+            // Dodaj iframe do diva strony głównej
+            nowyPokoj.appendChild(iframeElement);
+
+            var cotainer = document.getElementById('main-content');
+            cotainer.appendChild(nowyPokoj);
+        }
 
         showSubpage(event.data.page);
     }
