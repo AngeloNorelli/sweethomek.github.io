@@ -13,6 +13,7 @@
 
     <div class="top-bar">
         <div class="top-bar-left">
+            <div class="tab" onclick="toggleSubmenu('side-bar')">[]</div>
             <div class="tab" onclick="toggleSubmenu(showSubpage('strona_glowna'))">Strona  Główna</div>
             <div class="small_title">Nazwa Domu</div>
 
@@ -39,6 +40,8 @@
 
     <!-- WIDOK GŁÓWNEJ STRONY -->
     <div class="container">
+        <div class="side-bar" id="side-bar" style="display: none;"></div>
+
         <div class="main-content" id="main-content" style="width: 100%;">
             <div id="strona_glowna" class="content">
                 <iframe src="views/main_page_frame.html" frameborder="0" scrolling="no" style="height: 710px;"></iframe>
