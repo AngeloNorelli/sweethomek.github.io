@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/index_page.css">
+    <script>
+        document.addEventListener('click', function() {
+            window.parent.postMessage('clicked', '*');
+        });
+    </script>
 </head>
 <body>
     <h1>TEMPLATE DLA POKOI</h1>

@@ -27,10 +27,13 @@ function handleSubscriptionPlan(checkbox) {
   }
 }
 
-
 function submitForm() {
     document.getElementById('notify').style.display = 'block';
     setTimeout(function() {
         document.getElementById('notify').style.display = 'none';
     }, 3000); 
 }
+
+document.addEventListener('click', function() {
+  window.parent.postMessage('clicked', '*');
+});

@@ -50,10 +50,6 @@ function showSubpage(pageID) {
 }
 
 window.addEventListener('message', function(event) {
-    if(event.data.type === 'changeColor' && event.origin === this.window.origin) {
-        document.body.style.backgroundColor = event.data.color;
-    }
-
     if(event.data === 'clicked') {
         const allSubmenus = document.querySelectorAll('.submenu');
         allSubmenus.forEach(function(submenu){
@@ -69,6 +65,7 @@ window.addEventListener('message', function(event) {
             // Utwórz div dla strony głównej
             var nowyPokoj = document.createElement("div");
             nowyPokoj.id = event.data.page;
+            nowyPokoj.style.display = 'none';
             nowyPokoj.classList.add("content");
 
             // Utwórz iframe

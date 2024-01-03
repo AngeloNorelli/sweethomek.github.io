@@ -133,6 +133,7 @@ body, html {
 
 .content {
     padding: 20px;
+    display: none;
 }
 
 .content iframe {
