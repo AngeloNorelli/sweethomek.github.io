@@ -1,16 +1,3 @@
-function showSubpage(pageID) {
-    const page = document.getElementById(pageID);
-    const allPages = document.querySelectorAll('.content');
-
-    allPages.forEach(function(item) {
-        if (item !== page) {
-            item.style.display = 'none';
-        } else {
-            item.style.display = 'block'
-        }
-    });
-}
-
 function toggleForm() {
     var formContainer = document.getElementById("formContainer");
     
