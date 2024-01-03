@@ -13,6 +13,8 @@ function addNewTile(event) {
     var title = document.getElementById("title").value;
     var description = document.getElementById("description").value;
 
+    window.parent.postMessage({type: 'subpage', page: title}, '*');
+    
     var newTile = document.createElement("div");
 
     newTile.addEventListener('click', function() {
