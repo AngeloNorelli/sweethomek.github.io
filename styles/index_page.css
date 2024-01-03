@@ -121,6 +121,7 @@ body, html {
 
 .side-bar {
     background-color: #555454;
+    margin-bottom: -47px;
 }
 
 .container {

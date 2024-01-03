@@ -103,8 +103,8 @@ window.addEventListener('message', function(event) {
 
             var cotainer = document.getElementById('main-content');
             cotainer.appendChild(nowyPokoj);
+        } else {
+            showSubpage(event.data.page);
         }
-
-        showSubpage(event.data.page);
     }
 });
