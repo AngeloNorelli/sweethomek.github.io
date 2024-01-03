@@ -33,3 +33,7 @@ function addNewTile(event) {
     var formContainer = document.getElementById("formContainer");
     formContainer.style.display = "none";
 }
+
+document.addEventListener('click', function() {
+    window.parent.postMessage('clicked', '*');
+});
