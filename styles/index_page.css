@@ -6,7 +6,7 @@ body, html {
 }
 
 .filler {
-    min-height: 93px;
+    min-height: 58px;
 }
 
 .top-bar {
@@ -84,6 +84,25 @@ body, html {
 
 .submenu .subsite:hover {
     background-color: #f2f2f2;
+}
+
+.subsite {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.subsite:hover {
+    background-color: purple;
+}
+
+.side-bar {
+    background-color: red;
+}
+
+.arrow {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .container {
