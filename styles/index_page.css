@@ -69,41 +69,62 @@ body, html {
     display: none;
     position: absolute;
     left: -120px;
-    background-color: #fff;
+    background-color: #333;
     min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-.submenu .subsite {
+.submenu {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+.subsite {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;  
+    transition: background-color 0.3s ease-in-out;
+    border-bottom: 2px solid #ddd; 
+
+}
+
+.arrow {
+    color: #ffffff;
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 5px;
+    transition: color 0.3s ease-in-out;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+.subsite:hover,
+.arrow:hover {
+    background-color: #2f6d7c; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+
+.submenu:hover{
     padding: 10px;
     color: #333;
     text-decoration: none;
     display: block;
 }
 
-.submenu .subsite:hover {
-    background-color: #f2f2f2;
-}
-
-.subsite {
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-}
-
-.subsite:hover {
-    background-color: purple;
-}
 
 .side-bar {
-    background-color: red;
+    background-color: #555454;
+    transition: left 0.3s ease-in-out; 
 }
 
-.arrow {
-    margin-left: 5px;
-    margin-right: 5px;
-}
 
 .container {
     width: 100%;
@@ -120,21 +141,10 @@ body, html {
     width: 100%;
 }
 
-.sidebar {
-    width: 20%; 
-    margin-top: 30px; 
-    margin-bottom: 30px; 
-    margin-right: 5px
-}
-
-.sidebar .main-content {
-    margin-bottom: 30px; 
-    color: #e0dfdf; 
-    background-color: #333; 
-    border-radius: 10px;
-}
-
 footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #333;
     color: white;
     padding: 20px 0;
@@ -142,6 +152,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+    max-height: 100px;
 }
 
 .footer-title {
@@ -158,7 +169,7 @@ footer {
 
 @media screen and (max-width: 768px) {
     .filler {
-        min-height: 120px;
+        min-height: 60px;
     }
 
     .small_title {

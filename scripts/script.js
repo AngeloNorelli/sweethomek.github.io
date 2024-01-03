@@ -84,7 +84,7 @@ window.addEventListener('message', function(event) {
             // Utwórz strzałkę w burgerze przekierowującą na podstronę
             var arrowInBurger = document.createElement("div");
             arrowInBurger.classList.add("arrow");
-            arrowInBurger.innerText = '>';
+            arrowInBurger.innerText = '➜';
             
             // Utwórz div dla burgerka
             var burgerElement = document.createElement("div");
@@ -93,7 +93,7 @@ window.addEventListener('message', function(event) {
             burgerElement.addEventListener('click', function() {
                 showSubpage(event.data.page)
             });
-
+        
             var sideContainer = document.getElementById('side-bar');
             burgerElement.appendChild(arrowInBurger);
             sideContainer.appendChild(burgerElement);
