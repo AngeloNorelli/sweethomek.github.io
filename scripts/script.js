@@ -72,7 +72,7 @@ window.addEventListener("message", function (event) {
 
       var iframeElement = document.createElement("iframe");
       iframeElement.src = "/iframe/roomtemplate/" + nowyPokoj.id;
-      iframeElement.style.height = "900px";
+      iframeElement.style.minHeight = "100vh";
       iframeElement.frameBorder = "0";
 
       document.body.appendChild(iframeElement);

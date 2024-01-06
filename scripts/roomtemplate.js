@@ -1,7 +1,7 @@
 function addDevice(deviceId) {
   const deviceItem = document.getElementById(deviceId);
   if (!deviceItem) {
-    console.error(`Device with ID ${deviceId} not found.`);
+    console.error(`Urzadzenie o ID ${deviceId} nie znalezione.`);
     return;
   }
 
@@ -29,7 +29,7 @@ function updateDeviceList(deviceItem) {
   if (deviceList) {
     deviceList.removeChild(deviceItem);
   } else {
-    console.error("Device list not found.");
+    console.error("Nie znaleziono urzadzenia.");
   }
 }
 
@@ -38,11 +38,29 @@ function updateDisplay(deviceContainer) {
   if (specificDevice) {
     specificDevice.appendChild(deviceContainer);
     specificDevice.style.display = "grid";
-    specificDevice.style.gridTemplateColumns =
-      "repeat(auto-fill, minmax(200px, 1fr))";
-    specificDevice.style.gap = "50px";
-    specificDevice.style.maxWidth = "100%";
-  } else {
-    console.error("Specific device container not found.");
+    specificDevice.style.gap = "3em";
+  }
+}
+
+setGridLayout();
+
+//Aktualizacja grida dla roznych szerokosci
+window.addEventListener("resize", setGridLayout);
+
+function setGridLayout() {
+  const specificDevice = document.getElementById("specificDevice");
+  const screenWidth = window.innerWidth;
+
+  if (specificDevice) {
+    if (screenWidth < 600) {
+      specificDevice.style.gridTemplateColumns = "1fr";
+    } else if (screenWidth >= 600 && screenWidth < 1300) {
+      specificDevice.style.gridTemplateColumns = "repeat(2, 1fr)";
+      specificDevice.style.gap = "50px";
+    } else if (screenWidth >= 1300 && screenWidth < 1800) {
+      specificDevice.style.gridTemplateColumns = "repeat(3, 1fr)";
+    } else {
+      specificDevice.style.gridTemplateColumns = "repeat(4, 1fr)";
+    }
   }
 }
