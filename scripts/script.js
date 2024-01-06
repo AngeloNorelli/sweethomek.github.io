@@ -69,14 +69,18 @@ window.addEventListener("message", function (event) {
       nowyPokoj.classList.add("content");
 
       // Utwórz iframe
+
       var iframeElement = document.createElement("iframe");
-      iframeElement.src = "views/roomtemplate.html";
+      iframeElement.src = "/iframe/roomtemplate/" + nowyPokoj.id;
+      iframeElement.style.height = "900px";
+      iframeElement.frameBorder = "0";
+
+      document.body.appendChild(iframeElement);
+
       // powyżej powinna być nazwa jako zmienna, dla każdej podstrony powinien być generowany osoby plik html (który dziedziczy po roomtamplate)
       //  1) tworzymy kopię pliku roomtemplate.html i zmieniamy dla niej nazwę na nazwę podstrony pomieszczenia,
       //  2) w ten sposób kafelki z różnych stron nie będą nie siebie wpływać, będą różne na każdej podstronie,
       //  3) przez to mogą się identycznie nazywać, tzn. można będzie je rozróżniać na podstawie podstrony pomieszczenia, w którym się znajdują.
-      iframeElement.style.height = "710px";
-      iframeElement.frameBorder = "0";
 
       // Utwórz strzałkę w burgerze przekierowującą na podstronę
       var arrowInBurger = document.createElement("div");

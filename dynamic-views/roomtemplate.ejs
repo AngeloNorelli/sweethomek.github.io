@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/roomtemplate.css" />
+    <title><%= pageName %></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-nav">
+        <div id="availableDevices">
+          <h2>Dostępne urządzenia:</h2>
+          <ul id="deviceList">
+            <li data-room="<%= pageName %>" id="alarm">
+              Alarm
+              <button onclick="addDevice('alarm')" id="add_button">+</button>
+            </li>
+            <li data-room="<%= pageName %>" id="ogrodzenie">
+              Ogrodzenie
+              <button onclick="addDevice('ogrodzenie')" id="add_button">
+                +
+              </button>
+            </li>
+            <li data-room="<%= pageName %>" id="oswietlenie">
+              Oswietlenie
+              <button onclick="addDevice('oswietlenie')" id="add_button">
+                +
+              </button>
+            </li>
+            <li data-room="<%= pageName %>" id="monitoring">
+              Monitoring
+              <button onclick="addDevice('monitoring')" id="add_button">
+                +
+              </button>
+            </li>
+            <li data-room="<%= pageName %>" id="temperatura">
+              Temperatura
+              <button onclick="addDevice('temperatura')" id="add_button">
+                +
+              </button>
+            </li>
+            <li data-room="<%= pageName %>" id="odkurzacz">
+              Odkurzacz
+              <button onclick="addDevice('odkurzacz')" id="add_button">
+                +
+              </button>
+            </li>
+            <li data-room="<%= pageName %>" id="zmywarka">
+              Zmywarka
+              <button onclick="addDevice('zmywarka')" id="add_button">+</button>
+            </li>
+            <li data-room="<%= pageName %>" id="monitoring">
+              Monitoring
+              <button onclick="addDevice('monitoring')" id="add_button">
+                +
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main">
+        <h1><%= pageName %></h1>
+        <div id="specificDevice" style="display: none">
+          <!-- <h2>Urządzenia w pomieszczeniu:</h2> -->
+          <!-- <div class="device-container" id="deviceContainer">
+            Tu pokaza sie wybrane urzadzenia -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+    <script src="/scripts/roomtemplate.js" defer></script>
+  </body>
+</html>

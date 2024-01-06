@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main Page</title>
-    <link rel="stylesheet" href="../styles/main_page_frame.css">
-</head>
+    <link rel="stylesheet" href="../styles/main_page_frame.css" />
+  </head>
 
-<body>
+  <body>
     <div class="tile-container" id="tileContainer">
-
-    <div class="tile-container-button">
+      <div class="tile-container-button">
         <button onclick="toggleForm()" id="add_button">+</button>
-    </div>
-
+      </div>
     </div>
 
     <!-- Formularz aktywowany przy nacisnieciu przycisku -->
-    <div id="formContainer" style="display: none;">
-        <form id="tileForm" onsubmit="addNewTile(event)">
-            <label for="title">Nazwa Pomieszczenia:</label>
-            <input type="text" id="title" name="title" required><br>
-            <label for="description">Opis:</label>
-            <input type="text" id="description" name="description" required><br>
-            <input type="submit" value="Dodaj Pomieszczenie">
-        </form>
+    <div id="formContainer" style="display: none">
+      <form
+        id="tileForm"
+        action="/createRoom"
+        method="post"
+        onsubmit="addNewTile(event)"
+      >
+        <label for="title">Nazwa Pomieszczenia:</label>
+        <input type="text" id="title" name="title" required /><br />
+        <label for="description">Opis:</label>
+        <input type="text" id="description" name="description" required /><br />
+        <input type="submit" value="Dodaj Pomieszczenie" />
+      </form>
     </div>
 
     <script src="../scripts/main_page_frame.js"></script>
-</body>
+  </body>
 </html>
