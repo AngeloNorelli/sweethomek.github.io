@@ -92,7 +92,13 @@ const devices = [
 ];
 
 function toggleDevice(deviceId) {
-  console.log(`Toggling device with ID: ${deviceId}`);
+  const button = document.getElementById(`${deviceId}Button`);
+
+  if (button) {
+    button.classList.toggle("btn-off");
+  } else {
+    console.error(`Button with ID ${deviceId} not found.`);
+  }
 }
 
 function createDeviceButton(device) {
@@ -107,6 +113,8 @@ function createDeviceButton(device) {
     slider.value = "20"; // Initial value
     slider.className = "slider";
     button.appendChild(slider);
+  } else {
+    button.classList.add("btn-off");
   }
 
   button.innerHTML += `<i class="material-icons">${device.icon}</i>`;

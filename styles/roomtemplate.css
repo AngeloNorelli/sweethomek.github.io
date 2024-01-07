@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: "Poppins", sans-serif; /* Add a modern font */
 }
 
 .container {
@@ -101,4 +102,8 @@ li button {
 
 .device button i {
   margin-right: 5px;
+}
+
+.device button.btn-off {
+  background-color: gray;
 }
