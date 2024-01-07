@@ -9,14 +9,15 @@
 </head>
 
 <body>
+    <div class="main-content-wrapper">
+
     <script src="scripts/script.js"></script>
 
     <div class="top-bar">
         <div class="top-bar-left">
             <div class="tab" onclick="toggleSubmenu('side-bar')">☰</div>
             <div class="tab" onclick="toggleSubmenu(showSubpage('strona_glowna'))">Strona  Główna</div>
-            <div class="small_title">Nazwa Domu</div>
-
+            <div class="small_title">Smart Home</div>
             <div class="spacer"></div>
         </div>
 
@@ -44,12 +45,12 @@
 
         <div class="main-content" id="main-content" style="width: 100%;">
             <div id="strona_glowna" class="content" style="display: block;">
-                <iframe src="views/main_page_frame.html" frameborder="0" scrolling="no" style="height: 710px;"></iframe>
+                <iframe src="views/main_page_frame.html" frameborder="0" scrolling="yes" style="height: 87vh;"></iframe>
             </div>
 
     <!-- WIDOK - "TWOJE KONTO" -->
             <div id="zakladka1-content" class="content">
-                <iframe src="views/options_page.html" frameborder="0" scrolling="no" style="height: 750px;"></iframe>
+                <iframe src="views/options_page.html" frameborder="0" scrolling="yes" style="height: 87vh;"></iframe>
             </div>
     
     <!-- OPCJA TRYB NOCNY TODO: -->
@@ -63,6 +64,7 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 
 <footer id="footer">

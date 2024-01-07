@@ -20,9 +20,9 @@
     <div id="formContainer" style="display: none;">
         <form id="tileForm" onsubmit="addNewTile(event)">
             <label for="title">Nazwa Pomieszczenia:</label>
-            <input type="text" id="title" name="title" required><br>
+            <input type="text" id="title" name="title" required  maxlength="25"><br>
             <label for="description">Opis:</label>
-            <input type="text" id="description" name="description" required><br>
+            <input type="text" id="description" name="description" required  maxlength="45"><br>
             <input type="submit" value="Dodaj Pomieszczenie">
         </form>
     </div>

@@ -194,10 +194,19 @@ input[type="button"]:hover {
     flex-direction: column;
     align-items: flex-start;
     font-size: 23px;
-    height: 90%;
-    width: 50%;
+    height: 100%;
+    width: 45%;
     order: 2;
   }
+
+  .notify-container-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 23px;
+    width: 100%;
+  }
+
 
   .subscription-section h3{
     margin: 10px;
@@ -210,6 +219,15 @@ input[type="button"]:hover {
   .active-plan, .days-left {
     margin-top: 15px;
   }
+
+
+  @media (max-width: 887px) {
+    #description {
+        width: 80%; 
+        height: 15vh; 
+      
+    }
+}
 
 
  
