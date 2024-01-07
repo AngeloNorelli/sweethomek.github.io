@@ -79,10 +79,26 @@ li button {
   background-color: #f8f8f8;
   font-size: 1.5em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* .device li {
-  font-weight: bold;
-} */
+/* icon buttons */
+.device button {
+  border-radius: 5px;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.device button:hover {
+  background-color: #328c35;
+}
+
+.device button i {
+  margin-right: 5px;
+}

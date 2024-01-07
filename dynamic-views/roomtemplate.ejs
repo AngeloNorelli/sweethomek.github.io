@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/roomtemplate.css" />
     <title><%= pageName %></title>
+    <!-- Font Awesome -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
@@ -50,24 +55,13 @@
               Zmywarka
               <button onclick="addDevice('zmywarka')" id="add_button">+</button>
             </li>
-            <li data-room="<%= pageName %>" id="monitoring">
-              Monitoring
-              <button onclick="addDevice('monitoring')" id="add_button">
-                +
-              </button>
-            </li>
           </ul>
         </div>
       </div>
 
       <div class="main">
         <h1><%= pageName %></h1>
-        <div id="specificDevice" style="display: none">
-          <!-- <h2>Urządzenia w pomieszczeniu:</h2> -->
-          <!-- <div class="device-container" id="deviceContainer">
-            Tu pokaza sie wybrane urzadzenia -->
-          <!-- </div> -->
-        </div>
+        <div id="specificDevice" style="display: none"></div>
       </div>
     </div>
     <script src="/scripts/roomtemplate.js" defer></script>

@@ -6,9 +6,10 @@ function addDevice(deviceId) {
   }
 
   const clonedDevice = cloneDevice(deviceItem);
-  const deviceContainer = createDeviceContainer(clonedDevice);
+  const deviceContainer = createDeviceContainer(clonedDevice, deviceId);
   updateDeviceList(deviceItem);
   updateDisplay(deviceContainer);
+  addButtonToDeviceDiv(deviceId);
 }
 
 function cloneDevice(deviceItem) {
@@ -17,9 +18,10 @@ function cloneDevice(deviceItem) {
   return clonedDevice;
 }
 
-function createDeviceContainer(clonedDevice) {
+function createDeviceContainer(clonedDevice, deviceId) {
   const deviceContainer = document.createElement("div");
   deviceContainer.classList.add("device");
+  deviceContainer.classList.add(deviceId);
   deviceContainer.appendChild(clonedDevice);
   return deviceContainer;
 }
@@ -42,8 +44,98 @@ function updateDisplay(deviceContainer) {
   }
 }
 
-setGridLayout();
+//test
+const devices = [
+  {
+    id: "monitoring",
+    name: "Monitoring",
+    icon: "videocam",
+    onClick: () => toggleDevice("monitoring"),
+  },
+  {
+    id: "temperatura",
+    name: "Temperatura",
+    icon: "ac_unit",
+    onClick: () => toggleDevice("temperatura"),
+    slider: true,
+  },
+  {
+    id: "odkurzacz",
+    name: "Odkurzacz",
+    icon: "cleaning_services",
+    onClick: () => toggleDevice("odkurzacz"),
+  },
+  {
+    id: "zmywarka",
+    name: "Zmywarka",
+    icon: "dish",
+    onClick: () => toggleDevice("zmywarka"),
+  },
+  {
+    id: "alarm",
+    name: "Alarm",
+    icon: "music_note",
+    onClick: () => toggleDevice("alarm"),
+  },
+  {
+    id: "ogrodzenie",
+    name: "Ogrodzenie",
+    icon: "local_florist",
+    onClick: () => toggleDevice("ogrodzenie"),
+  },
+  {
+    id: "oswietlenie",
+    name: "Oswietlenie",
+    icon: "wb_incandescent",
+    onClick: () => toggleDevice("oswietlenie"),
+  },
+];
 
+function toggleDevice(deviceId) {
+  console.log(`Toggling device with ID: ${deviceId}`);
+}
+
+function createDeviceButton(device) {
+  const button = document.createElement("button");
+  button.id = `${device.id}Button`;
+
+  if (device.slider) {
+    const slider = document.createElement("input");
+    slider.type = "range";
+    slider.min = "10";
+    slider.max = "30";
+    slider.value = "20"; // Initial value
+    slider.className = "slider";
+    button.appendChild(slider);
+  }
+
+  button.innerHTML += `<i class="material-icons">${device.icon}</i>`;
+  button.onclick = device.onClick;
+  return button;
+}
+
+function addButtonToDeviceDiv(deviceId) {
+  const deviceDiv = document.getElementsByClassName(deviceId);
+
+  if (deviceDiv) {
+    // Find information about the device
+    const device = devices.find((d) => d.id === deviceId);
+
+    if (device) {
+      // Create a button for the device
+      const button = createDeviceButton(device);
+
+      // Add the button to the device
+      deviceDiv[0].appendChild(button);
+    } else {
+      console.error(`Device with ID ${deviceId} not found.`);
+    }
+  } else {
+    console.error(`Device div with ID ${deviceId} not found.`);
+  }
+}
+
+setGridLayout();
 //Aktualizacja grida dla roznych szerokosci
 window.addEventListener("resize", setGridLayout);
 
