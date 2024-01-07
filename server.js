@@ -13,14 +13,14 @@ app.get("/", (req, res) => {
 });
 
 // ladowanie widoku dla pokoju
-app.get("/iframe/roomtemplate/:roomName", (req, res) => {
+app.get("/iframe/roomtemplate/:roomName/:roomType", (req, res) => {
   const roomName = req.params.roomName;
-  res.render("roomtemplate", { pageName: roomName });
+  const roomType = req.params.roomType;
+  res.render("roomtemplate", { pageName: roomName, roomType: roomType });
 });
 
 app.post("/createRoom", (req, res) => {
   const pageName = req.body.title;
-  alert(pageName);
 });
 
 const PORT = process.env.PORT || 3000;

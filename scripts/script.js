@@ -65,13 +65,16 @@ window.addEventListener("message", function (event) {
       // Utwórz div dla strony głównej
       var nowyPokoj = document.createElement("div");
       nowyPokoj.id = event.data.page;
+      nowyPokoj.roomType = event.data.roomType;
+      // this.alert(`Nowy pokoj typ: ${nowyPokoj.roomType}`);
       nowyPokoj.style.display = "none";
       nowyPokoj.classList.add("content");
 
       // Utwórz iframe
 
       var iframeElement = document.createElement("iframe");
-      iframeElement.src = "/iframe/roomtemplate/" + nowyPokoj.id;
+      iframeElement.src =
+        "/iframe/roomtemplate/" + nowyPokoj.id + "/" + nowyPokoj.roomType;
       iframeElement.style.minHeight = "100vh";
       iframeElement.frameBorder = "0";
 
