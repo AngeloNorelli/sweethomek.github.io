@@ -1,39 +1,48 @@
 function toggleForm() {
-    var formContainer = document.getElementById("formContainer");
-    
-    if (formContainer.style.display === "none" || formContainer.style.display === "") {
-        formContainer.style.display = "block";
-    } else {
-        formContainer.style.display = "none";
-    }
+  var formContainer = document.getElementById("formContainer");
+
+  if (
+    formContainer.style.display === "none" ||
+    formContainer.style.display === ""
+  ) {
+    formContainer.style.display = "block";
+  } else {
+    formContainer.style.display = "none";
+  }
 }
 
 function addNewTile(event) {
-    event.preventDefault();
-    var title = document.getElementById("title").value;
-    var description = document.getElementById("description").value;
+  event.preventDefault();
+  var title = document.getElementById("title").value;
+  var roomType = document.getElementById("roomType").value;
+  var description = document.getElementById("description").value;
 
-    window.parent.postMessage({type: 'subpage', page: title}, '*');
-    
-    var newTile = document.createElement("div");
+  window.parent.postMessage(
+    { type: "subpage", page: title, roomType: roomType },
+    "*"
+  );
 
-    newTile.addEventListener('click', function() {
-        window.parent.postMessage({type: 'subpage', page: title}, '*');
-    });
-    newTile.classList.add("tile");
+  var newTile = document.createElement("div");
 
-    newTile.innerHTML = `
+  newTile.addEventListener("click", function () {
+    window.parent.postMessage(
+      { type: "subpage", page: title, roomType: roomType },
+      "*"
+    );
+  });
+  newTile.classList.add("tile");
+
+  newTile.innerHTML = `
         <h2>${title}</h2>
         <p>${description}</p>`;
 
+  var tileContainer = document.getElementById("tileContainer");
+  tileContainer.appendChild(newTile);
 
-    var tileContainer = document.getElementById("tileContainer");
-    tileContainer.appendChild(newTile);
-
-    var formContainer = document.getElementById("formContainer");
-    formContainer.style.display = "none";
+  var formContainer = document.getElementById("formContainer");
+  formContainer.style.display = "none";
 }
 
-document.addEventListener('click', function() {
-    window.parent.postMessage('clicked', '*');
+document.addEventListener("click", function () {
+  window.parent.postMessage("clicked", "*");
 });

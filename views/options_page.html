@@ -1,82 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Opcje</title>
-  <link rel="stylesheet" href="../styles/options_page.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opcje</title>
+    <link rel="stylesheet" href="../styles/options_page.css" />
+  </head>
+  <body>
     <script src="../scripts/options_page.js"></script>
 
     <div class="options-container">
-        <!-- Wlaczenie powiadomien-->
-        <div class="left-container">
-            <div class="notify-container">
-                <h3>Włącz Powiadomienia</h3>
-                <div class="toggle-switch">
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div>
-            
-            <div class="content-form">
-                <!-- Formularz "Kontakt ze Serwisem " -->
-                <form id="contactForm" style="margin-bottom: 20px;">
-                    <h2>Kontakt Z Serwisem</h2>
-                    <label for="description">Opis sytuacji:</label>
-                    <textarea id="description" name="description" rows="4" cols="50"></textarea>
-
-                    <label for="appointment">Wybierz termin:</label>
-                    <input type="datetime-local" id="appointment" name="appointment">
-
-                    <input type="button" value="Wyślij zgłoszenie" onclick="submitForm()">
-                </form>
-
-                <!-- Div notify do wyświetlenia komunikatu po wysłaniu formularza -->
-                <div id="notify" style="display: none; background-color: #4CAF50; color: white; padding: 15px; position: fixed; bottom: 0; right: 0;">
-                    Zgłoszenie zostało wysłane!
-                </div>
-            </div>
+      <!-- Wlaczenie powiadomien-->
+      <div class="left-container">
+        <div class="notify-container">
+          <h3>Włącz Powiadomienia</h3>
+          <div class="toggle-switch">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
         </div>
-        <div class="subscription-section">
-                <div class="notify-container-right">
-                <h3>Subskrypcja</h3>
-                </div>
-            <div class="subscription-plans">
-                <div class="subscription-plan" data-duration="30">
-                    <label class="switch">
-                        <input type="checkbox" name="plan1" onclick="handleSubscriptionPlan(this)">
-                        <span class="slider"></span>
-                    </label>
-                    Plan 1 - 30 dni
-                </div>
-                <div class="subscription-plan" data-duration="60">
-                    <label class="switch">
-                        <input type="checkbox" name="plan2" onclick="handleSubscriptionPlan(this)">
-                        <span class="slider"></span>
-                    </label>
-                    Plan 2 - 60 dni
-                </div>
-                <div class="subscription-plan" data-duration="90">
-                    <label class="switch">
-                        <input type="checkbox" name="plan3" onclick="handleSubscriptionPlan(this)">
-                        <span class="slider"></span>
-                    </label>
-                    Plan 3 - 90 dni
-                </div>
-            </div>
-    
-            <div class="active-plan">
-                Aktywny plan: <span id="active-plan">Brak</span>
-            </div>
-    
-            <div class="days-left">
-                Dni do wygaśnięcia: <span id="days-left">0</span>
-            </div>
+
+        <div class="content-form">
+          <!-- Formularz "Kontakt ze Serwisem " -->
+          <form id="contactForm" style="margin-bottom: 20px">
+            <h2>Kontakt Z Serwisem</h2>
+            <label for="description">Opis sytuacji:</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              cols="50"
+            ></textarea>
+
+            <label for="appointment">Wybierz termin:</label>
+            <input type="datetime-local" id="appointment" name="appointment" />
+
+            <input
+              type="button"
+              value="Wyślij zgłoszenie"
+              onclick="submitForm()"
+            />
+          </form>
+
+          <!-- Div notify do wyświetlenia komunikatu po wysłaniu formularza -->
+          <div
+            id="notify"
+            style="
+              display: none;
+              background-color: #4caf50;
+              color: white;
+              padding: 15px;
+              position: fixed;
+              bottom: 0;
+              right: 0;
+            "
+          >
+            Zgłoszenie zostało wysłane!
+          </div>
         </div>
+      </div>
+      <div class="subscription-section">
+        <div class="notify-container-right">
+          <h3>Subskrypcja</h3>
+        </div>
+        <div class="subscription-plans">
+          <div class="subscription-plan" data-duration="30">
+            <label class="switch">
+              <input
+                type="checkbox"
+                name="plan1"
+                onclick="handleSubscriptionPlan(this)"
+              />
+              <span class="slider"></span>
+            </label>
+            Plan 1 - 30 dni
+          </div>
+          <div class="subscription-plan" data-duration="60">
+            <label class="switch">
+              <input
+                type="checkbox"
+                name="plan2"
+                onclick="handleSubscriptionPlan(this)"
+              />
+              <span class="slider"></span>
+            </label>
+            Plan 2 - 60 dni
+          </div>
+          <div class="subscription-plan" data-duration="90">
+            <label class="switch">
+              <input
+                type="checkbox"
+                name="plan3"
+                onclick="handleSubscriptionPlan(this)"
+              />
+              <span class="slider"></span>
+            </label>
+            Plan 3 - 90 dni
+          </div>
+        </div>
+
+        <div class="active-plan">
+          Aktywny plan: <span id="active-plan">Brak</span>
+        </div>
+
+        <div class="days-left">
+          Dni do wygaśnięcia: <span id="days-left">0</span>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
