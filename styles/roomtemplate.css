@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif; /* Add a modern font */
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -24,6 +24,19 @@ body {
 
 #availableDevices {
   margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #2c3e50;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -91,6 +104,16 @@ li button {
   padding: 10px 15px;
   background-color: #4caf50;
   color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.device .temparature-btn {
+  border-radius: 5px;
+  padding: 10px 15px;
+  background-color: gray;
+  color: #4caf50;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;

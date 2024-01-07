@@ -40,7 +40,7 @@ function updateDisplay(deviceContainer) {
   if (specificDevice) {
     specificDevice.appendChild(deviceContainer);
     specificDevice.style.display = "grid";
-    specificDevice.style.gap = "3em";
+    specificDevice.style.gap = "5em";
   }
 }
 
@@ -95,7 +95,9 @@ function toggleDevice(deviceId) {
   const button = document.getElementById(`${deviceId}Button`);
 
   if (button) {
-    button.classList.toggle("btn-off");
+    if (button.id !== "temperaturaButton") {
+      button.classList.toggle("btn-off");
+    }
   } else {
     console.error(`Button with ID ${deviceId} not found.`);
   }
@@ -110,9 +112,17 @@ function createDeviceButton(device) {
     slider.type = "range";
     slider.min = "10";
     slider.max = "30";
-    slider.value = "20"; // Initial value
+    slider.value = "20";
     slider.className = "slider";
+
+    const valueDisplay = document.createElement("span");
+    valueDisplay.className = "slider-value";
+    valueDisplay.textContent = `${slider.value} °C`;
+    valueDisplay.style.fontSize = "1.2em";
+    valueDisplay.style.fontWeight = "bold";
+
     button.appendChild(slider);
+    button.appendChild(valueDisplay);
   } else {
     button.classList.add("btn-off");
   }
@@ -121,6 +131,18 @@ function createDeviceButton(device) {
   button.onclick = device.onClick;
   return button;
 }
+
+document.addEventListener("input", function (event) {
+  const target = event.target;
+
+  if (target.classList.contains("slider")) {
+    const valueDisplay = target.nextElementSibling;
+
+    if (valueDisplay && valueDisplay.classList.contains("slider-value")) {
+      valueDisplay.textContent = `${target.value} °C`;
+    }
+  }
+});
 
 function addButtonToDeviceDiv(deviceId) {
   const deviceDiv = document.getElementsByClassName(deviceId);
