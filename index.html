@@ -1,89 +1,124 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
     <title>Sweet Home Control</title>
-    <link rel="stylesheet" href="styles/index_page.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="styles/index_page.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
     <!-- Alwayes load strona_glowna-->
     <script>
-        window.onload = function() {
-            showSubpage('strona_glowna');
-        };
+      window.onload = function () {
+        showSubpage("strona_glowna");
+      };
     </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="main-content-wrapper">
+      <script src="scripts/script.js"></script>
 
-    <script src="scripts/script.js"></script>
-
-    <div class="top-bar">
+      <div class="top-bar">
         <div class="top-bar-left">
-            <div class="tab" onclick="toggleSubmenu('side-bar')">☰</div>
-            <div class="tab" onclick="toggleSubmenu(showSubpage('strona_glowna'))">Strona  Główna</div>
-            <div class="small_title">Smart Home</div>
-            <div class="spacer"></div>
+          <div class="tab" onclick="toggleSubmenu('side-bar')">☰</div>
+          <div
+            class="tab"
+            onclick="toggleSubmenu(showSubpage('strona_glowna'))"
+          >
+            Strona Główna
+          </div>
+          <div class="small_title">Smart Home</div>
+          <div class="spacer"></div>
         </div>
 
-        <div class="bar-title">
-            Smart Home
-        </div>
+        <div class="bar-title">Smart Home</div>
 
         <!-- PRZESTAWIŁEM SUBMENU NA PRAWO -->
         <div class="tab-container">
-            <div class="tab" onclick="toggleSubmenu('zakladka1')">
-                v
-                <div class="submenu" id="zakladka1" style="display: none;">
-                    <div class="subsite" onclick="showSubpage('zakladka1-content')">Twoje konto</div>
-                    <div class="subsite" onclick="showSubpage('zakladka2-content')">Tryb nocny</div>
-                    <div class="subsite" onclick="showSubpage('zakladka3-content')">Wyloguj</div>
-                </div>
+          <div class="tab" onclick="toggleSubmenu('zakladka1')">
+            v
+            <div class="submenu" id="zakladka1" style="display: none">
+              <div class="subsite" onclick="showSubpage('zakladka1-content')">
+                Twoje konto
+              </div>
+              <div class="subsite" onclick="showSubpage('zakladka2-content')">
+                Tryb nocny
+              </div>
+              <div class="subsite" onclick="showSubpage('zakladka3-content')">
+                Wyloguj
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="filler"></div>
+      </div>
+      <div class="filler"></div>
 
-    <!-- WIDOK GŁÓWNEJ STRONY -->
-    <div class="container">
-        <div class="side-bar" id="side-bar" style="display: none;"></div>
+      <!-- WIDOK GŁÓWNEJ STRONY -->
+      <div class="container">
+        <div class="side-bar" id="side-bar" style="display: none"></div>
 
-        <div class="main-content" id="main-content" style="width: 100%;">
-            <div id="strona_glowna" class="content" style="display: block;">
-                <iframe src="views/main_page_frame.html" frameborder="0" scrolling="yes" style="height: 87vh;"></iframe>
-            </div>
+        <div class="main-content" id="main-content" style="width: 100%">
+          <div id="strona_glowna" class="content" style="display: block">
+            <iframe
+              src="views/main_page_frame.html"
+              frameborder="0"
+              scrolling="yes"
+              style="height: 87vh"
+            ></iframe>
+          </div>
 
-    <!-- WIDOK - "TWOJE KONTO" -->
-            <div id="zakladka1-content" class="content">
-                <iframe src="views/options_page.html" frameborder="0" scrolling="yes" style="height: 87vh;"></iframe>
-            </div>
-    
-    <!-- OPCJA TRYB NOCNY TODO: -->
-            <div id="zakladka2-content" class="content">
-                <iframe src="fibonacci.html" frameborder="0" scrolling="no" style="height: 350px;"></iframe>
-            </div>
-    
-    <!-- OPCJA WYLOGOWANIA TODO -->
-            <div id="zakladka3-content" class="content">
-                <iframe src="pole_prostokata.html" frameborder="0" scrolling="no" style="height: 350px;"></iframe>
-            </div>
+          <!-- WIDOK - "TWOJE KONTO" -->
+          <div id="zakladka1-content" class="content">
+            <iframe
+              src="views/options_page.html"
+              frameborder="0"
+              scrolling="yes"
+              style="height: 87vh"
+            ></iframe>
+          </div>
+
+          <!-- OPCJA TRYB NOCNY TODO: -->
+          <div id="zakladka2-content" class="content">
+            <iframe
+              src="fibonacci.html"
+              frameborder="0"
+              scrolling="no"
+              style="height: 350px"
+            ></iframe>
+          </div>
+
+          <!-- OPCJA WYLOGOWANIA TODO -->
+          <div id="zakladka3-content" class="content">
+            <iframe
+              src="pole_prostokata.html"
+              frameborder="0"
+              scrolling="no"
+              style="height: 350px"
+            ></iframe>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 
-<footer id="footer">
+  <footer id="footer">
     <div class="footer-title">Kontakt</div>
     <div class="footer-icons">
-        <a href="https://github.com/AngeloNorelli/sweethomek.github.io" target="_blank"><i class="fab fa-github"></i></a>
-
+      <a
+        href="https://github.com/AngeloNorelli/sweethomek.github.io"
+        target="_blank"
+        ><i class="fab fa-github"></i
+      ></a>
     </div>
     <p>&copy; Projekt 'Inteligenty Dom' Grupa D</p>
-</footer>
+  </footer>
 
-<!-- Biblioteka Font Awesome - ikony -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <!-- Biblioteka Font Awesome - ikony -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </html>
