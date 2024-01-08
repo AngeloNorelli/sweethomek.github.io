@@ -1,6 +1,6 @@
 # Projekt URL
 
-## [https://fearless-juicy-brochure.glitch.me](https://fearless-juicy-brochure.glitch.me)
+## [https://marbled-ionian-dive.glitch.me](https://marbled-ionian-dive.glitch.me)
 
 Aby uruchomić projekt lokalnie po sklonowaniu:
 
