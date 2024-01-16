@@ -17,7 +17,7 @@ Upewnij się, że masz zainstalowany Node.js oraz npm na swoim komputerze przed 
 
 |   Nr  | Opis Poprawki                    | Status      |
 |-------|----------------------------------|-------------|
-|   1   | Dodanie funkcjonalności menu rozwijanego - powinno się rozwinąć, nawet gdy nie dodano jeszcze żadnego pomieszczenia |  - [ ]    |
+|   1   | Dodanie funkcjonalności menu rozwijanego - powinno się rozwinąć, nawet gdy nie dodano jeszcze żadnego pomieszczenia |  * [ ] todo   |
 |   2   | Dodanie funkcjonalności przycisku "Tryb Nocny" | [ ] To Do   |
 |   3   | Po wysłaniu zgłoszenia w zakładce "Twoje Konto" dane powinny automatycznie usuwać się z formularza, aby użytkownik nie mógł wielokrotnie wysłać tego samego zgłoszenia (SPAM) | [ ] To Do   |
 |   4   | Naprawa możliwości wysłania całkowicie pustego zgłoszenia | [ ] To Do   |
