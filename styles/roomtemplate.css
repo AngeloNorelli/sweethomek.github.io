@@ -22,6 +22,11 @@ body {
   background-color: #f8f8f8;
 }
 
+.dark-mode .left-nav {
+  background-color: #333;
+  color: #f8f8f8;
+}
+
 #availableDevices {
   margin-bottom: 20px;
 }
@@ -37,6 +42,11 @@ h1 {
   font-weight: bold;
   text-align: center;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode h1{
+  color: #fff;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.384);
 }
 
 h2 {
