@@ -94,7 +94,6 @@ window.addEventListener("message", function (event) {
 
       var arrowInBurger = document.createElement("div");
       arrowInBurger.classList.add("arrow");
-      arrowInBurger.innerText = "➜";
 
       burgerElement.addEventListener("click", function () {
         showSubpage(event.data.page);
