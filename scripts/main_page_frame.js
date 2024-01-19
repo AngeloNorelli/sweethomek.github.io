@@ -56,12 +56,11 @@ if (savedDarkMode === 'true') {
   body.classList.add('dark-mode');
 }
 
-window.addEventListener('message', function(event) {
-  if(event.data === 'changeTheme') {
+window.addEventListener('storage', function(event) {
+  if(event.key === 'darkMode') {
     const updatedDarkMode = localStorage.getItem('darkMode');
     const body = document.body;
     
-    // Ustawiamy odpowiednie klasy na podstronie
     if (updatedDarkMode === 'true') {
         body.classList.add('dark-mode');
     } else {

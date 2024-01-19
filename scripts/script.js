@@ -131,13 +131,6 @@ function switchTheme() {
   trybNocnyButton.textContent = body.classList.contains('dark-mode') ? 'Tryb dzienny' : 'Tryb nocny';
 
   localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-
-  var iframes = document.getElementsByClassName('iframeClass');
-  for (var i=0; i< frames.length; i++) {
-    if (iframes[i].contentWindow) {
-      iframes[i].contentWindow.postMessage('changeTheme', '*')
-    }
-  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
