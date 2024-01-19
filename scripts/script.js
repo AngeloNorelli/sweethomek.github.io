@@ -85,27 +85,36 @@ window.addEventListener("message", function (event) {
       //  2) w ten sposób kafelki z różnych stron nie będą nie siebie wpływać, będą różne na każdej podstronie,
       //  3) przez to mogą się identycznie nazywać, tzn. można będzie je rozróżniać na podstawie podstrony pomieszczenia, w którym się znajdują.
 
-     
+      var burgerElement = document.createElement("div");
+      burgerElement.classList.add("subsite");
+      var paragraphElement = document.createElement("p");
+      paragraphElement.innerText = event.data.page;
 
+      burgerElement.appendChild(paragraphElement);
 
-      // Utwórz strzałkę w burgerze przekierowującą na podstronę
       var arrowInBurger = document.createElement("div");
       arrowInBurger.classList.add("arrow");
       arrowInBurger.innerText = "➜";
 
-      // Utwórz div dla burgerka
-      var burgerElement = document.createElement("div");
-      burgerElement.classList.add("subsite");
-      burgerElement.innerText = event.data.page;
       burgerElement.addEventListener("click", function () {
         showSubpage(event.data.page);
       });
+
+    
+      // strzalka niewidczona
+      burgerElement.appendChild(arrowInBurger);
+
+      arrowInBurger.style.position = "absolute";
+      arrowInBurger.style.top = "50%";
+      arrowInBurger.style.transform = "translateY(-50%)";
+      arrowInBurger.style.right = "10px"; 
+
 
       var sideContainer = document.getElementById("side-bar");
       burgerElement.appendChild(arrowInBurger);
       sideContainer.appendChild(burgerElement);
 
-      // Dodaj iframe do diva strony głównej
+
       nowyPokoj.appendChild(iframeElement);
 
       var cotainer = document.getElementById("main-content");
