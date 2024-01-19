@@ -102,14 +102,14 @@ input[type="button"]:focus {
 }
 
 input[type="button"] {
-  background-color: #6ab04c;
+  background-color: rgba(57, 169, 177, 0.459);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 input[type="button"]:hover {
-  background-color: #4e7e39;
+  background-color: rgba(88, 244, 255, 0.13);
 }
 
 /* animacja notyfikacji po nacisnieciu prszycisku wyslij zgloszenie */
