@@ -28,12 +28,30 @@ function handleSubscriptionPlan(checkbox) {
 }
 
 function submitForm() {
-    document.getElementById('notify').style.display = 'block';
-    setTimeout(function() {
-        document.getElementById('notify').style.display = 'none';
-    }, 3000); 
-}
+  var descriptionInput = document.getElementById("description");
+  var appointmentInput = document.getElementById("appointment");
 
-document.addEventListener('click', function() {
-  window.parent.postMessage('clicked', '*');
-});
+  if (descriptionInput.value.trim() === "" || appointmentInput.value.trim() === "") {
+    alert("Proszę wypełnić wszystkie pola przed wysłaniem zgłoszenia.");
+    return;
+  }
+
+  document.getElementById('notify').style.display = 'block';
+
+  descriptionInput.value = "";
+  appointmentInput.value = "";
+
+  if (activeCheckbox) {
+    activeCheckbox.checked = false;
+    activeCheckbox = null;
+  }
+
+  var activePlanElement = document.getElementById("active-plan");
+  var daysLeftElement = document.getElementById("days-left");
+  activePlanElement.textContent = "Brak";
+  daysLeftElement.textContent = "0";
+
+  setTimeout(function () {
+    document.getElementById('notify').style.display = 'none';
+  }, 3000);
+}

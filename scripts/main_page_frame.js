@@ -13,9 +13,13 @@ function toggleForm() {
 
 function addNewTile(event) {
   event.preventDefault();
-  var title = document.getElementById("title").value;
-  var roomType = document.getElementById("roomType").value;
-  var description = document.getElementById("description").value;
+  var titleInput = document.getElementById("title");
+  var roomTypeInput = document.getElementById("roomType");
+  var descriptionInput = document.getElementById("description");
+
+  var title = titleInput.value;
+  var roomType = roomTypeInput.value;
+  var description = descriptionInput.value;
 
   window.parent.postMessage(
     { type: "subpage", page: title, roomType: roomType },
@@ -39,13 +43,15 @@ function addNewTile(event) {
   var tileContainer = document.getElementById("tileContainer");
   tileContainer.appendChild(newTile);
 
+  // Wyczyść wartości pól formularza
+  titleInput.value = "";
+  roomTypeInput.value = "";
+  descriptionInput.value = "";
+
   var formContainer = document.getElementById("formContainer");
   formContainer.style.display = "none";
 }
 
-document.addEventListener("click", function () {
-  window.parent.postMessage("clicked", "*");
-});
 
 
 // Odczytywanie aktualnego trybu z localStorage

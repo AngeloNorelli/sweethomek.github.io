@@ -19,11 +19,11 @@ Upewnij się, że masz zainstalowany Node.js oraz npm na swoim komputerze przed 
 |-------|----------------------------------|-------------|
 |   1   | Dodanie funkcjonalności menu rozwijanego - powinno się rozwinąć, nawet gdy nie dodano jeszcze żadnego pomieszczenia | [✓] |
 |   2   | Dodanie funkcjonalności przycisku "Tryb Nocny"| [✓] |
-|   3   | Po wysłaniu zgłoszenia w zakładce "Twoje Konto" dane powinny automatycznie usuwać się z formularza, aby użytkownik nie mógł wielokrotnie wysłać tego samego zgłoszenia (SPAM) | [ ] |
-|   4   | Naprawa możliwości wysłania całkowicie pustego zgłoszenia | [ ] |
-|   5   | Dodanie ograniczenia znaków w formularzu zgłoszenia, aby okno zgłoszenia nie mogło się rozszerzać w nieskończoność. Tekst powinien być zawijany, a użytkownik powinien być informowany, gdy przekroczy dozwoloną ilość znaków. | [ ] |
-|   6   | Rozwiązanie problemu z ograniczeniem długości nazwy pomieszczenia i opisu. Dodanie zawijania tekstu w nazwie i opisie. Informowanie użytkownika o przekroczeniu dozwolonej ilości znaków, zawijanie sie tekstu w przypadku dlugich nazw | [ ] |
-|   7   | Po stworzeniu nowego pomieszczenia, formularz nie powinien być wypełniony danymi z poprzedniego pomieszczenia. | [ ] |
+|   3   | Po wysłaniu zgłoszenia w zakładce "Twoje Konto" dane powinny automatycznie usuwać się z formularza, aby użytkownik nie mógł wielokrotnie wysłać tego samego zgłoszenia (SPAM) | [✓] |
+|   4   | Naprawa możliwości wysłania całkowicie pustego zgłoszenia | [✓] |
+|   5   | Dodanie ograniczenia znaków w formularzu zgłoszenia, aby okno zgłoszenia nie mogło się rozszerzać w nieskończoność. Tekst powinien być zawijany, a użytkownik powinien być informowany, gdy przekroczy dozwoloną ilość znaków., NIE MOZNA TERAZ ZMIENIAC RECZNIE WIELKSCI FORMULARZA ILOSC ZNAKOW DOWOLNA TEKST SIE ZAWIJA | [✓] |
+|   6   | Rozwiązanie problemu z ograniczeniem długości nazwy pomieszczenia i opisu. Dodanie zawijania tekstu w nazwie i opisie. Informowanie użytkownika o przekroczeniu dozwolonej ilości znaków, zawijanie sie tekstu w przypadku dlugich nazw , TEKST SIE ZAWIJA MAKSYMALNE DLUGOSCI NAPISOW (100 nazwa,200 opis) [✓] |
+|   7   | Po stworzeniu nowego pomieszczenia, formularz nie powinien być wypełniony danymi z poprzedniego pomieszczenia. | [✓] |
 |   8   | Dodanie ikonki zmywarki | [ ] |
 |   9   | Kursor powinien zmieniać się na łapkę (Pointer) nad przyciskami, które można nacisnąć. | [ ] |
 |   10   | Naprawa responsywności dodawania urządzeń do pomieszczenia podczas widoku mobilnego | [ ] |
