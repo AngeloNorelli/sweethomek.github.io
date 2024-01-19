@@ -18,7 +18,7 @@ Upewnij się, że masz zainstalowany Node.js oraz npm na swoim komputerze przed 
 |   Nr  | Opis Poprawki                    | Status      |
 |-------|----------------------------------|-------------|
 |   1   | Dodanie funkcjonalności menu rozwijanego - powinno się rozwinąć, nawet gdy nie dodano jeszcze żadnego pomieszczenia | [✓] |
-|   2   | Dodanie funkcjonalności przycisku "Tryb Nocny" - dla strony głównej w pełni działa a strony pokoi nie chcą współpracować :<| [+/-] |
+|   2   | Dodanie funkcjonalności przycisku "Tryb Nocny"| [✓] |
 |   3   | Po wysłaniu zgłoszenia w zakładce "Twoje Konto" dane powinny automatycznie usuwać się z formularza, aby użytkownik nie mógł wielokrotnie wysłać tego samego zgłoszenia (SPAM) | [ ] |
 |   4   | Naprawa możliwości wysłania całkowicie pustego zgłoszenia | [ ] |
 |   5   | Dodanie ograniczenia znaków w formularzu zgłoszenia, aby okno zgłoszenia nie mogło się rozszerzać w nieskończoność. Tekst powinien być zawijany, a użytkownik powinien być informowany, gdy przekroczy dozwoloną ilość znaków. | [ ] |
