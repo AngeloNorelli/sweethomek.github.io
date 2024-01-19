@@ -22,6 +22,25 @@ body {
   min-height: 100px;
 }
 
+.dark-mode .tile {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.39);
+  background-color: #7a7a7a;
+}
+
+.dark-mode .tile h2{
+  color: #dfdfdf;
+}
+
+.dark-mode .tile p{
+  color: #ccc;
+}
+
+.dark-mode button {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.39);
+  background-color: #7a7a7a;
+  color: #ccc;
+}
+
 /*-------------------------------------------*/
 select {
   font-family: "Poppins", sans-serif;
@@ -99,7 +118,7 @@ select {
 
 #formContainer input[type="submit"] {
   display: flex;
-  background-color: #4caf50;
+  background-color: rgba(88, 244, 255, 0.692);
   font-size: 16px;
 
   justify-content: center;
@@ -110,7 +129,7 @@ select {
 
 /* jakis fancy shit XD */
 #formContainer input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: rgba(88, 244, 255, 0.493);
 }
 
 #formContainer input:hover,

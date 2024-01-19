@@ -115,3 +115,32 @@ window.addEventListener("message", function (event) {
     }
   }
 });
+
+function switchTheme() {
+  const body = document.body;
+
+  if (body.classList.contains('dark-mode')) {
+    body.classList.remove('dark-mode');
+    body.style.backgroundColor = '#e0dfdf';
+  } else {
+    body.classList.add('dark-mode');
+    body.style.backgroundColor = '#444444';
+  }
+
+  const trybNocnyButton = document.querySelector('.submenu .subsite:nth-child(2)');
+  trybNocnyButton.textContent = body.classList.contains('dark-mode') ? 'Tryb dzienny' : 'Tryb nocny';
+
+  localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedDarkMode = localStorage.getItem('darkMode');
+  const body = document.body;
+
+  if (savedDarkMode === 'true') {
+      body.classList.add('dark-mode');
+      body.style.backgroundColor = '#444444';
+      const trybNocnyButton = document.querySelector('.submenu .subsite:nth-child(2)');
+      trybNocnyButton.textContent = 'Tryb dzienny';
+  }
+});

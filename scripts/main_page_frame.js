@@ -46,3 +46,25 @@ function addNewTile(event) {
 document.addEventListener("click", function () {
   window.parent.postMessage("clicked", "*");
 });
+
+
+// Odczytywanie aktualnego trybu z localStorage
+const savedDarkMode = localStorage.getItem('darkMode');
+const body = document.body;
+
+if (savedDarkMode === 'true') {
+  body.classList.add('dark-mode');
+}
+
+window.addEventListener('storage', function(event) {
+  if(event.key === 'darkMode') {
+    const updatedDarkMode = localStorage.getItem('darkMode');
+    const body = document.body;
+    
+    if (updatedDarkMode === 'true') {
+        body.classList.add('dark-mode');
+    } else {
+        body.classList.remove('dark-mode');
+    }
+  }
+});
