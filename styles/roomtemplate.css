@@ -66,7 +66,7 @@ li {
 }
 
 li button {
-  background-color: rgba(88, 244, 255, 0.692);
+  background-color: rgba(65, 179, 187, 0.712);
   color: white;
   border: none;
   padding: 5px 10px;
@@ -75,6 +75,10 @@ li button {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+}
+
+.dark-mode li button {
+  background-color: rgba(88, 244, 255, 0.692);
 }
 
 .main {
