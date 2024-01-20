@@ -89,7 +89,6 @@ window.addEventListener("message", function (event) {
       var burgerElement = document.createElement("div");
       burgerElement.classList.add("subsite");
       burgerElement.id = page.toLowerCase() + "-menu";
-      console.log(burgerElement);
       var paragraphElement = document.createElement("p");
       paragraphElement.innerText = event.data.page;
 
