@@ -44,7 +44,7 @@ h1 {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-.dark-mode h1{
+.dark-mode h1 {
   color: #fff;
   text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.384);
 }
@@ -110,6 +110,7 @@ li button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .dark-mode .device {
@@ -127,13 +128,14 @@ li button {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.device .temparature-btn {
+#temperaturaButton {
   border-radius: 5px;
   padding: 10px 15px;
-  background-color: gray;
-  color: rgba(88, 244, 255, 0.363);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -143,8 +145,8 @@ li button {
   background-color: rgba(88, 244, 255, 0.363);
 }
 
-.device button i {
-  margin-right: 5px;
+.device button.btn-off {
+  background-color: gray;
 }
 
 .device button.btn-off {
@@ -153,4 +155,23 @@ li button {
 
 .dark-mode .device button.btn-off {
   background-color: #6e6e6e;
+}
+
+/* remove device button */
+
+.device .remove-device-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: gray;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0;
+  text-align: center;
+}
+
+.device .remove-device-button:hover {
+  background-color: #b51f1f;
 }

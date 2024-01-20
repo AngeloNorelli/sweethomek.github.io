@@ -34,6 +34,21 @@ function updateDeviceList(deviceItem) {
     console.error("Nie znaleziono urzadzenia.");
   }
 }
+// update the list with devices
+function addDeviceBackToList(deviceItem) {
+  const deviceList = document.getElementById("deviceList");
+  var addButton = document.createElement("button");
+  const onclickFunction = `addDevice('${deviceItem.id}')`;
+  addButton.setAttribute("onclick", onclickFunction);
+  addButton.id = "add_button";
+  addButton.textContent = "+";
+  if (deviceList) {
+    deviceItem.appendChild(addButton);
+    deviceList.appendChild(deviceItem);
+  } else {
+    console.error("Device list not found.");
+  }
+}
 
 function updateDisplay(deviceContainer) {
   const specificDevice = document.getElementById("specificDevice");
@@ -68,7 +83,7 @@ const devices = [
   {
     id: "zmywarka",
     name: "Zmywarka",
-    icon: "dish",
+    icon: "free_breakfast",
     onClick: () => toggleDevice("zmywarka"),
   },
   {
@@ -95,9 +110,9 @@ function toggleDevice(deviceId) {
   const button = document.getElementById(`${deviceId}Button`);
 
   if (button) {
-    if (button.id !== "temperaturaButton") {
-      button.classList.toggle("btn-off");
-    }
+    // if (button.id !== "temperaturaButton") {
+    button.classList.toggle("btn-off");
+    // }
   } else {
     console.error(`Button with ID ${deviceId} not found.`);
   }
@@ -114,6 +129,7 @@ function createDeviceButton(device) {
     slider.max = "30";
     slider.value = "20";
     slider.className = "slider";
+    button.classList.add("btn-off");
 
     const valueDisplay = document.createElement("span");
     valueDisplay.className = "slider-value";
@@ -123,7 +139,6 @@ function createDeviceButton(device) {
 
     button.appendChild(slider);
     button.appendChild(valueDisplay);
-  } else {
     button.classList.add("btn-off");
   }
 
@@ -134,6 +149,8 @@ function createDeviceButton(device) {
 
 document.addEventListener("input", function (event) {
   const target = event.target;
+  event.stopPropagation();
+  event.preventDefault();
 
   if (target.classList.contains("slider")) {
     const valueDisplay = target.nextElementSibling;
@@ -144,19 +161,25 @@ document.addEventListener("input", function (event) {
   }
 });
 
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("slider")) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
+});
+
 function addButtonToDeviceDiv(deviceId) {
   const deviceDiv = document.getElementsByClassName(deviceId);
 
   if (deviceDiv) {
-    // Find information about the device
     const device = devices.find((d) => d.id === deviceId);
 
     if (device) {
-      // Create a button for the device
       const button = createDeviceButton(device);
-
-      // Add the button to the device
+      // remove device button
+      const removeDeviceButton = createRemoveDeviceButton(device);
       deviceDiv[0].appendChild(button);
+      deviceDiv[0].appendChild(removeDeviceButton);
     } else {
       console.error(`Device with ID ${deviceId} not found.`);
     }
@@ -188,22 +211,49 @@ function setGridLayout() {
 }
 
 // Odczytywanie aktualnego trybu z localStorage
-const savedDarkMode = localStorage.getItem('darkMode');
+const savedDarkMode = localStorage.getItem("darkMode");
 const body = document.body;
 
-if (savedDarkMode === 'true') {
-  body.classList.add('dark-mode');
+if (savedDarkMode === "true") {
+  body.classList.add("dark-mode");
 }
 
-window.addEventListener('storage', function(event) {
-  if(event.key === 'darkMode') {
-    const updatedDarkMode = localStorage.getItem('darkMode');
+window.addEventListener("storage", function (event) {
+  if (event.key === "darkMode") {
+    const updatedDarkMode = localStorage.getItem("darkMode");
     const body = document.body;
-    
-    if (updatedDarkMode === 'true') {
-        body.classList.add('dark-mode');
+
+    if (updatedDarkMode === "true") {
+      body.classList.add("dark-mode");
     } else {
-        body.classList.remove('dark-mode');
+      body.classList.remove("dark-mode");
     }
   }
 });
+
+// funkcje do obslugi usuwania urzadzen
+
+function createRemoveDeviceButton(device) {
+  const removeButton = document.createElement("button");
+  removeButton.id = `remove${device.id}Button`;
+  removeButton.classList.add("remove-device-button");
+  // removeButton.innerText = "Remove Device";
+  removeButton.innerHTML += `<i class="material-icons">close</i>`;
+
+  // Add an event listener to handle the removal of the device
+  removeButton.addEventListener("click", () => removeDevice(device.id));
+
+  return removeButton;
+}
+
+function removeDevice(deviceId) {
+  const deviceDiv = document.getElementsByClassName(deviceId);
+  const deviceItem = document.getElementById(deviceId);
+  console.log(deviceItem);
+  if (deviceDiv) {
+    deviceDiv[0].remove();
+    addDeviceBackToList(deviceItem);
+  } else {
+    console.error(`Device div with ID ${deviceId} not found.`);
+  }
+}
