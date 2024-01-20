@@ -22,16 +22,20 @@ body {
   min-height: 100px;
 }
 
+.tile:hover {
+  cursor: pointer;
+}
+
 .dark-mode .tile {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.39);
   background-color: #7a7a7a;
 }
 
-.dark-mode .tile h2{
+.dark-mode .tile h2 {
   color: #dfdfdf;
 }
 
-.dark-mode .tile p{
+.dark-mode .tile p {
   color: #ccc;
 }
 
@@ -83,7 +87,6 @@ select {
   color: #666;
   overflow-wrap: break-word;
   max-width: 100%;
-
 }
 
 /* formularz */
