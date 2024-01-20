@@ -25,13 +25,13 @@
           <ul id="deviceList">
             <li data-room="<%= pageName %>" id="alarm">
               Alarm
-              <button onclick="addDevice('alarm')" id="add_button">+</button>
+              <button onclick="addDevice('alarm')" class="add_button">+</button>
             </li>
             <% if (roomType === "ogrod") { %>
 
             <li data-room="<%= pageName %>" id="ogrodzenie">
               Ogrodzenie
-              <button onclick="addDevice('ogrodzenie')" id="add_button">
+              <button onclick="addDevice('ogrodzenie')" class="add_button">
                 +
               </button>
             </li>
@@ -39,13 +39,13 @@
 
             <li data-room="<%= pageName %>" id="oswietlenie">
               Oswietlenie
-              <button onclick="addDevice('oswietlenie')" id="add_button">
+              <button onclick="addDevice('oswietlenie')" class="add_button">
                 +
               </button>
             </li>
             <li data-room="<%= pageName %>" id="monitoring">
               Monitoring
-              <button onclick="addDevice('monitoring')" id="add_button">
+              <button onclick="addDevice('monitoring')" class="add_button">
                 +
               </button>
             </li>
@@ -53,13 +53,13 @@
 
             <li data-room="<%= pageName %>" id="temperatura">
               Temperatura
-              <button onclick="addDevice('temperatura')" id="add_button">
+              <button onclick="addDevice('temperatura')" class="add_button">
                 +
               </button>
             </li>
             <li data-room="<%= pageName %>" id="odkurzacz">
               Odkurzacz
-              <button onclick="addDevice('odkurzacz')" id="add_button">
+              <button onclick="addDevice('odkurzacz')" class="add_button">
                 +
               </button>
             </li>
@@ -67,7 +67,9 @@
 
             <li data-room="<%= pageName %>" id="zmywarka">
               Zmywarka
-              <button onclick="addDevice('zmywarka')" id="add_button">+</button>
+              <button onclick="addDevice('zmywarka')" class="add_button">
+                +
+              </button>
             </li>
             <% } %>
           </ul>
