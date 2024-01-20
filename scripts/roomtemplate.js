@@ -237,19 +237,15 @@ function createRemoveDeviceButton(device) {
   const removeButton = document.createElement("button");
   removeButton.id = `remove${device.id}Button`;
   removeButton.classList.add("remove-device-button");
-  // removeButton.innerText = "Remove Device";
   removeButton.innerHTML += `<i class="material-icons">close</i>`;
 
-  // Add an event listener to handle the removal of the device
   removeButton.addEventListener("click", () => removeDevice(device.id));
-
   return removeButton;
 }
 
 function removeDevice(deviceId) {
   const deviceDiv = document.getElementsByClassName(deviceId);
   const deviceItem = document.getElementById(deviceId);
-  console.log(deviceItem);
   if (deviceDiv) {
     deviceDiv[0].remove();
     addDeviceBackToList(deviceItem);

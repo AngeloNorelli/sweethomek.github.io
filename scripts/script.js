@@ -58,7 +58,8 @@ window.addEventListener("message", function (event) {
   }
 
   if (event.data.type === "subpage") {
-    var checkForExistance = document.getElementById(event.data.page);
+    var page = event.data.page;
+    var checkForExistance = document.getElementById(page);
     // Skrypt z dodawaniem kafelka daje na stałe event listenera i za każdym razem jak kafelek jest naciśnięty
     // będzie tworzył kolejne divy, które już powstały dla danego pokoju, więc dodaję sprawdzenie, czy już przypadkiem już nie istnieje
     if (!checkForExistance) {
@@ -75,7 +76,7 @@ window.addEventListener("message", function (event) {
       var iframeElement = document.createElement("iframe");
       iframeElement.src =
         "/iframe/roomtemplate/" + nowyPokoj.id + "/" + nowyPokoj.roomType;
-      
+
       iframeElement.style.height = "87vh";
       iframeElement.frameBorder = "0";
       document.body.appendChild(iframeElement);
@@ -87,6 +88,7 @@ window.addEventListener("message", function (event) {
 
       var burgerElement = document.createElement("div");
       burgerElement.classList.add("subsite");
+      burgerElement.id = page.toLowerCase() + "-menu";
       var paragraphElement = document.createElement("p");
       paragraphElement.innerText = event.data.page;
 
@@ -99,20 +101,17 @@ window.addEventListener("message", function (event) {
         showSubpage(event.data.page);
       });
 
-    
       // strzalka niewidczona
       burgerElement.appendChild(arrowInBurger);
 
       arrowInBurger.style.position = "absolute";
       arrowInBurger.style.top = "50%";
       arrowInBurger.style.transform = "translateY(-50%)";
-      arrowInBurger.style.right = "10px"; 
-
+      arrowInBurger.style.right = "10px";
 
       var sideContainer = document.getElementById("side-bar");
       burgerElement.appendChild(arrowInBurger);
       sideContainer.appendChild(burgerElement);
-
 
       nowyPokoj.appendChild(iframeElement);
 
@@ -122,33 +121,46 @@ window.addEventListener("message", function (event) {
       showSubpage(event.data.page);
     }
   }
+
+  if (event.data.type == "remove-subpage") {
+    var page = event.data.page;
+    var subpage_id = page.toLowerCase() + "-menu";
+    var burgerElement = this.document.getElementById(subpage_id);
+    burgerElement.remove();
+  }
 });
 
 function switchTheme() {
   const body = document.body;
 
-  if (body.classList.contains('dark-mode')) {
-    body.classList.remove('dark-mode');
-    body.style.backgroundColor = '#e0dfdf';
+  if (body.classList.contains("dark-mode")) {
+    body.classList.remove("dark-mode");
+    body.style.backgroundColor = "#e0dfdf";
   } else {
-    body.classList.add('dark-mode');
-    body.style.backgroundColor = '#444444';
+    body.classList.add("dark-mode");
+    body.style.backgroundColor = "#444444";
   }
 
-  const trybNocnyButton = document.querySelector('.submenu .subsite:nth-child(2)');
-  trybNocnyButton.textContent = body.classList.contains('dark-mode') ? 'Tryb dzienny' : 'Tryb nocny';
+  const trybNocnyButton = document.querySelector(
+    ".submenu .subsite:nth-child(2)"
+  );
+  trybNocnyButton.textContent = body.classList.contains("dark-mode")
+    ? "Tryb dzienny"
+    : "Tryb nocny";
 
-  localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+  localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const savedDarkMode = localStorage.getItem('darkMode');
+document.addEventListener("DOMContentLoaded", () => {
+  const savedDarkMode = localStorage.getItem("darkMode");
   const body = document.body;
 
-  if (savedDarkMode === 'true') {
-      body.classList.add('dark-mode');
-      body.style.backgroundColor = '#444444';
-      const trybNocnyButton = document.querySelector('.submenu .subsite:nth-child(2)');
-      trybNocnyButton.textContent = 'Tryb dzienny';
+  if (savedDarkMode === "true") {
+    body.classList.add("dark-mode");
+    body.style.backgroundColor = "#444444";
+    const trybNocnyButton = document.querySelector(
+      ".submenu .subsite:nth-child(2)"
+    );
+    trybNocnyButton.textContent = "Tryb dzienny";
   }
 });
