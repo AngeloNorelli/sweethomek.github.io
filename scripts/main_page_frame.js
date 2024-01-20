@@ -11,47 +11,6 @@ function toggleForm() {
   }
 }
 
-// function addNewTile(event) {
-//   event.preventDefault();
-//   var titleInput = document.getElementById("title");
-//   var roomTypeInput = document.getElementById("roomType");
-//   var descriptionInput = document.getElementById("description");
-
-//   var title = titleInput.value;
-//   var roomType = roomTypeInput.value;
-//   var description = descriptionInput.value;
-
-//   window.parent.postMessage(
-//     { type: "subpage", page: title, roomType: roomType },
-//     "*"
-//   );
-
-//   var newTile = document.createElement("div");
-
-//   newTile.addEventListener("click", function () {
-//     window.parent.postMessage(
-//       { type: "subpage", page: title, roomType: roomType },
-//       "*"
-//     );
-//   });
-//   newTile.classList.add("tile");
-
-//   newTile.innerHTML = `
-//         <h2>${title}</h2>
-//         <p>${description}</p>`;
-
-//   var tileContainer = document.getElementById("tileContainer");
-//   tileContainer.appendChild(newTile);
-
-//   // Wyczyść wartości pól formularza
-//   titleInput.value = "";
-//   roomTypeInput.value = "";
-//   descriptionInput.value = "";
-
-//   var formContainer = document.getElementById("formContainer");
-//   formContainer.style.display = "none";
-// }
-
 function addNewTile(event) {
   event.preventDefault();
   var titleInput = document.getElementById("title");
