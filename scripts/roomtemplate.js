@@ -68,7 +68,7 @@ const devices = [
   {
     id: "zmywarka",
     name: "Zmywarka",
-    icon: "dish",
+    icon: "free_breakfast",
     onClick: () => toggleDevice("zmywarka"),
   },
   {
@@ -188,22 +188,22 @@ function setGridLayout() {
 }
 
 // Odczytywanie aktualnego trybu z localStorage
-const savedDarkMode = localStorage.getItem('darkMode');
+const savedDarkMode = localStorage.getItem("darkMode");
 const body = document.body;
 
-if (savedDarkMode === 'true') {
-  body.classList.add('dark-mode');
+if (savedDarkMode === "true") {
+  body.classList.add("dark-mode");
 }
 
-window.addEventListener('storage', function(event) {
-  if(event.key === 'darkMode') {
-    const updatedDarkMode = localStorage.getItem('darkMode');
+window.addEventListener("storage", function (event) {
+  if (event.key === "darkMode") {
+    const updatedDarkMode = localStorage.getItem("darkMode");
     const body = document.body;
-    
-    if (updatedDarkMode === 'true') {
-        body.classList.add('dark-mode');
+
+    if (updatedDarkMode === "true") {
+      body.classList.add("dark-mode");
     } else {
-        body.classList.remove('dark-mode');
+      body.classList.remove("dark-mode");
     }
   }
 });
