@@ -45,6 +45,24 @@ function showSubpage(pageID) {
       item.style.display = "none";
     } else {
       item.style.display = "block";
+
+      if(pageID === 'zakladka3-content') {
+        toggleSubmenu('side-bar');
+        const topbar = document.querySelector('.top-bar-left');
+        const title = document.querySelector('.bar-title');
+        const subsites = document.querySelectorAll('.submenu .subsite');
+        
+        for (var i = 0; i < subsites.length; i++) {
+          var subsiteText = subsites[i].textContent.trim();
+  
+          if (subsiteText === 'Twoje konto' || subsiteText === 'Wyloguj') {
+              subsites[i].style.display = 'none';
+          }
+        }
+
+        topbar.style.display = "none";
+        title.style.marginLeft = '42.1%';
+      }
     }
   });
 }
@@ -129,6 +147,25 @@ window.addEventListener("message", function (event) {
     var subpage_id = page.toLowerCase() + "-menu";
     var burgerElement = this.document.getElementById(subpage_id);
     burgerElement.remove();
+  }
+
+  if (event.data === "login") {
+    showSubpage("strona_glowna");
+
+    const topbar = document.querySelector('.top-bar-left');
+    const title = document.querySelector('.bar-title');
+    const subsites = document.querySelectorAll('.submenu .subsite');
+    
+    for (var i = 0; i < subsites.length; i++) {
+      var subsiteText = subsites[i].textContent.trim();
+
+      if (subsiteText === 'Twoje konto' || subsiteText === 'Wyloguj') {
+          subsites[i].style.display = 'block';
+      }
+    }
+
+    topbar.style.display = "block";
+    title.style.marginLeft = '0%';
   }
 });
 

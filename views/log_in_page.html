@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekran logowania</title>
+    <link rel="stylesheet" href="../styles/log_in_page.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Logowanie</h2>
+        <form id="loginForm">
+            <label for="username">Nazwa użytkownika:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="login()">Zaloguj</button>
+        </form>
+    </div>
+
+    <script src="../scripts/log_in_page.js"></script>
+</body>
+</html>

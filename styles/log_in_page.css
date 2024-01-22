@@ -1,0 +1,36 @@
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.login-container {
+    background-color: #fff;
+    margin-top: 10vh;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dark-mode .login-container {
+    color: #fff;
+    background-color: #4b4a4a;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: rgba(88, 244, 255, 0.692);
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
