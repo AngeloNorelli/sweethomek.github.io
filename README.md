@@ -32,4 +32,4 @@ Upewnij się, że masz zainstalowany Node.js oraz npm na swoim komputerze przed 
 |   13   | Dodanie przycisku usuwania kafelków (np. znak 'X' w prawym górnym rogu kafelka) | [✓] |
 |   14   | Dezaktywacja urządzeń temperatury (opcjonalne) | [ ] |
 |   15   | Poprawa ogólnych problemów z responsywnością w zakładkach "dodawania urządzenia" i "twoje konto (formularz)" "TWOJE KONTO" W PELNI RESPONSYWNE  | [50% ✓] |
-|   !!16!!   | Dodanie kilku nowych ikonek urządzeń | [ ] |
+|   !!16!!   | Dodanie kilku nowych ikonek urządzeń | [✓] |
