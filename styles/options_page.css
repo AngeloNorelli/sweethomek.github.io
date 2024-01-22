@@ -18,7 +18,7 @@ body {
   width: 90%;
   height: 90%;
   max-width: 90vw;
-  max-height: 90vh;
+  min-height: 115vh;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -226,6 +226,21 @@ input[type="button"]:hover {
     height: 15vh;
   }
 
+  .options-container
+  {
+    height:  120vh;
+  }
+  .subscription-section{
+    font-size: 15px;
+  }
+  #contactForm h2{
+    text-align: left;
+    font-size: 20px;
+  }
+  #contactForm{
+    width: 90%;
+  }
+
 }
 
 input[type="button"], button {
@@ -311,7 +326,7 @@ input[type="button"]:hover, button:hover {
 
 
 .additional-form-container {
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 .additional-form-container button{
@@ -333,20 +348,23 @@ input[type="button"]:hover, button:hover {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 #additionalForm label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 3px;
+  font-size: 20px;
 }
 
 #additionalForm input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 3px;
+  margin-bottom: 8px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+  padding: 3px;
 }
 
 
@@ -354,6 +372,7 @@ input[type="button"]:hover, button:hover {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
+  padding: 10px;
   
 }
 
@@ -371,15 +390,15 @@ input[type="button"]:hover, button:hover {
   min-width: 20%;
   max-width: 50%;
   overflow-wrap: break-word;
-  padding: 15px;
-  margin-top: 20px;
+  padding: 7px;
+  margin-top: 3px;
   text-align: left;
 }
 
 #displayAdditionalFormData p {
   margin-bottom: 10px;
   padding: 7px;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
 }
 
