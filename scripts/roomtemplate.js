@@ -38,6 +38,7 @@ function updateDeviceList(deviceItem) {
 function addDeviceBackToList(deviceItem) {
   const deviceList = document.getElementById("deviceList");
   var addButton = document.createElement("button");
+  console.log(deviceItem.id);
   const onclickFunction = `addDevice('${deviceItem.id}')`;
   addButton.setAttribute("onclick", onclickFunction);
   addButton.id = "add_button";
@@ -149,8 +150,8 @@ function createDeviceButton(device) {
 
 document.addEventListener("input", function (event) {
   const target = event.target;
-  event.stopPropagation();
-  event.preventDefault();
+  // event.stopPropagation();
+  // event.preventDefault();
 
   if (target.classList.contains("slider")) {
     const valueDisplay = target.nextElementSibling;
@@ -161,12 +162,12 @@ document.addEventListener("input", function (event) {
   }
 });
 
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("slider")) {
-    event.stopPropagation();
-    event.preventDefault();
-  }
-});
+// document.addEventListener("click", function (event) {
+//   if (event.target.classList.contains("slider")) {
+//     event.stopPropagation();
+//     event.preventDefault();
+//   }
+// });
 
 function addButtonToDeviceDiv(deviceId) {
   const deviceDiv = document.getElementsByClassName(deviceId);

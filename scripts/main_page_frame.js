@@ -29,6 +29,20 @@ function addNewTile(event) {
   var newTile = document.createElement("div");
   newTile.classList.add("tile");
 
+  newTile.addEventListener("click", function () {
+    window.parent.postMessage(
+      { type: "subpage", page: title, roomType: roomType },
+      "*"
+    );
+  });
+  newTile.classList.add("tile");
+
+  // Set the inner HTML for the tile
+  newTile.innerHTML = `
+    <h2>${title}</h2>
+    <p>${description}</p>
+  `;
+
   // Create the remove button
   var removeButton = document.createElement("button");
   removeButton.classList.add("remove-device-button");
@@ -36,18 +50,12 @@ function addNewTile(event) {
 
   removeButton.onclick = function (event) {
     newTile.remove();
-    event.stopPropagation();
+    // event.stopPropagation();
     window.parent.postMessage(
       { type: "remove-subpage", page: title, roomType: roomType },
       "*"
     );
   };
-
-  // Set the inner HTML for the tile
-  newTile.innerHTML = `
-    <h2>${title}</h2>
-    <p>${description}</p>
-  `;
   // Append the remove button to the newTile
   newTile.appendChild(removeButton);
 
