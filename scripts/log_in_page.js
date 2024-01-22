@@ -4,10 +4,10 @@ function login() {
 
     // Tutaj możesz dodać logikę weryfikacji użytkownika (np. porównywanie zapisanych danych do testowych)
     // Na potrzeby przykładu, sprawdzimy, czy oba pola są niepuste
-    if (username !== "" && password !== "") {
-        alert("Logowanie udane!");
+    if (username == "admin" && password == "admin") {
+        window.parent.postMessage("login", "*");
     } else {
-        alert("Wprowadź nazwę użytkownika i hasło.");
+        alert("Logowanie nieudane.\nWprowadź poprawne nazwę użytkownika i hasło.");
     }
 }
 
