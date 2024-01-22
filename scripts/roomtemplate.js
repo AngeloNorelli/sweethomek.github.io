@@ -85,6 +85,7 @@ const devices = [
     id: "zmywarka",
     name: "Zmywarka",
     icon: "free_breakfast",
+    time: true,
     onClick: () => toggleDevice("zmywarka"),
   },
   {
@@ -102,8 +103,30 @@ const devices = [
   {
     id: "oswietlenie",
     name: "Oswietlenie",
+    bright: true,
     icon: "wb_incandescent",
     onClick: () => toggleDevice("oswietlenie"),
+  },
+  {
+    id: "budzik",
+    name: "Budzik",
+    icon: "access_alarm",
+    time: true,
+    onClick: () => toggleDevice("budzik"),
+  },
+  {
+    id: "kosiarka",
+    name: "Kosiarka",
+    icon: "grass",
+    time: true,
+    onClick: () => toggleDevice("kosiarka"),
+  },
+  {
+    id: "zraszacz",
+    name: "Zraszacz",
+    icon: "water_drop",
+    time: true,
+    onClick: () => toggleDevice("zraszacz"),
   },
 ];
 
@@ -143,6 +166,46 @@ function createDeviceButton(device) {
     button.classList.add("btn-off");
   }
 
+  if (device.time) {
+    // Container for start time
+    const startContainer = document.createElement("div");
+    startContainer.className = "time-container";
+
+    // Label for start time
+    const startLabel = document.createElement("label");
+    startLabel.textContent = "Start:";
+    startLabel.htmlFor = "startTime";
+    startContainer.appendChild(startLabel);
+
+    // Start time input
+    const startTimeInput = document.createElement("input");
+    startTimeInput.type = "time";
+    startTimeInput.id = "startTime";
+    startTimeInput.className = "start-time-input";
+    startContainer.appendChild(startTimeInput);
+
+    // Container for end time
+    const endContainer = document.createElement("div");
+    endContainer.className = "time-container";
+
+    // Label for end time
+    const endLabel = document.createElement("label");
+    endLabel.textContent = "Stop:";
+    endLabel.htmlFor = "endTime";
+    endContainer.appendChild(endLabel);
+
+    // End time input
+    const endTimeInput = document.createElement("input");
+    endTimeInput.type = "time";
+    endTimeInput.id = "endTime";
+    endTimeInput.className = "end-time-input";
+    endContainer.appendChild(endTimeInput);
+
+    // Append the containers to the button
+    button.appendChild(startContainer);
+    button.appendChild(endContainer);
+  }
+
   button.innerHTML += `<i class="material-icons">${device.icon}</i>`;
   button.onclick = device.onClick;
   return button;
@@ -150,7 +213,7 @@ function createDeviceButton(device) {
 
 document.addEventListener("input", function (event) {
   const target = event.target;
-  // event.stopPropagation();
+  event.stopPropagation();
   // event.preventDefault();
 
   if (target.classList.contains("slider")) {
@@ -161,13 +224,6 @@ document.addEventListener("input", function (event) {
     }
   }
 });
-
-// document.addEventListener("click", function (event) {
-//   if (event.target.classList.contains("slider")) {
-//     event.stopPropagation();
-//     event.preventDefault();
-//   }
-// });
 
 function addButtonToDeviceDiv(deviceId) {
   const deviceDiv = document.getElementsByClassName(deviceId);
@@ -190,7 +246,6 @@ function addButtonToDeviceDiv(deviceId) {
 }
 
 setGridLayout();
-//Aktualizacja grida dla roznych szerokosci
 window.addEventListener("resize", setGridLayout);
 
 function setGridLayout() {
