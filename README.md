@@ -27,7 +27,7 @@ Upewnij się, że masz zainstalowany Node.js oraz npm na swoim komputerze przed 
 |   8   | Dodanie ikonki zmywarki | [✓] |
 |   9   | Kursor powinien zmieniać się na łapkę (Pointer) nad przyciskami, które można nacisnąć. | [✓] |
 |   10   | Naprawa responsywności dodawania urządzeń do pomieszczenia podczas widoku mobilnego | [ ] |
-|   11  | Błąd przy dodawaniu pomieszczenia o tej samej nazwie - rozważyć czy użytkownik powinien móc dodać pomieszczenie o tej samej nazwie. (według mnie nie )| [ ] |
+|   11  | Błąd przy dodawaniu pomieszczenia o tej samej nazwie - rozważyć czy użytkownik powinien móc dodać pomieszczenie o tej samej nazwie. (według mnie nie )| [✓] |
 |   12   | Dodanie możliwości edycji/zmiany kafelków (zmiana nazwy, opisu) | [ ] |
 |   13   | Dodanie przycisku usuwania kafelków (np. znak 'X' w prawym górnym rogu kafelka) | [✓] |
 |   14   | Dezaktywacja urządzeń temperatury (opcjonalne) | [ ] |
