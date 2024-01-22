@@ -13,54 +13,79 @@ function toggleForm() {
 
 function addNewTile(event) {
   event.preventDefault();
-  var titleInput = document.getElementById("title");
-  var roomTypeInput = document.getElementById("roomType");
-  var descriptionInput = document.getElementById("description");
+  const titleInput = document.getElementById("title");
+  const tileId = `tile-${titleInput.value.toLowerCase()}`;
 
-  var title = titleInput.value;
-  var roomType = roomTypeInput.value;
-  var description = descriptionInput.value;
+  if (isDuplicateTile(tileId)) {
+    alert("Pokój o podanej nazwie już istnieje.");
+    return;
+  }
 
-  window.parent.postMessage(
-    { type: "subpage", page: title, roomType: roomType },
-    "*"
-  );
+  const roomTypeInput = document.getElementById("roomType");
+  const descriptionInput = document.getElementById("description");
 
-  var newTile = document.createElement("div");
+  const title = titleInput.value;
+  const roomType = roomTypeInput.value;
+  const description = descriptionInput.value;
+
+  postMessageToParent("subpage", title, roomType);
+
+  const newTile = createTile(tileId, title, description);
+  setupTileInteraction(newTile, title, roomType);
+  appendTileToContainer(newTile);
+
+  clearFormInputs(titleInput, roomTypeInput, descriptionInput);
+  toggleFormVisibility(false);
+}
+
+function isDuplicateTile(tileId) {
+  return document.getElementById(tileId) !== null;
+}
+
+function postMessageToParent(type, title, roomType) {
+  window.parent.postMessage({ type, page: title, roomType }, "*");
+}
+
+function createTile(tileId, title, description) {
+  const newTile = document.createElement("div");
   newTile.classList.add("tile");
+  newTile.id = tileId;
+  newTile.innerHTML = `<h2>${title}</h2><p>${description}</p>`;
+  return newTile;
+}
 
-  // Create the remove button
-  var removeButton = document.createElement("button");
+function setupTileInteraction(tile, title, roomType) {
+  tile.addEventListener("click", () => {
+    postMessageToParent("subpage", title, roomType);
+  });
+  const removeButton = createRemoveButton(tile, title, roomType);
+  tile.appendChild(removeButton);
+}
+
+function createRemoveButton(tile, title, roomType) {
+  const removeButton = document.createElement("button");
   removeButton.classList.add("remove-device-button");
-  removeButton.innerHTML += `<i class="material-icons">close</i>`;
-
-  removeButton.onclick = function (event) {
-    newTile.remove();
+  removeButton.innerHTML = `<i class="material-icons">close</i>`;
+  removeButton.onclick = (event) => {
+    tile.remove();
     event.stopPropagation();
-    window.parent.postMessage(
-      { type: "remove-subpage", page: title, roomType: roomType },
-      "*"
-    );
+    postMessageToParent("remove-subpage", title, roomType);
   };
+  return removeButton;
+}
 
-  // Set the inner HTML for the tile
-  newTile.innerHTML = `
-    <h2>${title}</h2>
-    <p>${description}</p>
-  `;
-  // Append the remove button to the newTile
-  newTile.appendChild(removeButton);
+function appendTileToContainer(tile) {
+  const tileContainer = document.getElementById("tileContainer");
+  tileContainer.appendChild(tile);
+}
 
-  var tileContainer = document.getElementById("tileContainer");
-  tileContainer.appendChild(newTile);
+function clearFormInputs(...inputs) {
+  inputs.forEach((input) => (input.value = ""));
+}
 
-  // Clear form values
-  titleInput.value = "";
-  roomTypeInput.value = "";
-  descriptionInput.value = "";
-
-  var formContainer = document.getElementById("formContainer");
-  formContainer.style.display = "none";
+function toggleFormVisibility(isVisible) {
+  const formContainer = document.getElementById("formContainer");
+  formContainer.style.display = isVisible ? "block" : "none";
 }
 
 function removeTile(tileElement) {
