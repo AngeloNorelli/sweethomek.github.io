@@ -65,7 +65,10 @@
               right: 0;
             "
           >
-            Zgłoszenie zostało wysłane!
+            Dane Pomyslnie Wprowadzone
+          </div>
+
+          <div id="displayAdditionalFormData">
           </div>
         </div>
       </div>
@@ -116,7 +119,45 @@
         <div class="days-left">
           Dni do wygaśnięcia: <span id="days-left">0</span>
         </div>
+
+
+        <div class="card-button">
+          <button onclick="openPaymentModal()">Dodaj Kartę Płatniczą</button>
+        </div>  
+        <div id="paymentModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <label for="cardNumber">Numer Karty:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+
+            <label for="expiryDate">Data Ważności:</label>
+            <input type="text" id="expiryDate" name="expiryDate" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+
+            <button onclick="savePaymentDetails()">Zapisz</button>
+          </div>
+        </div>
+        <div class="additional-form-container">
+          <button onclick="toggleAdditionalForm()">Konifguracja Domu</button>
+          <div id="additionalFormContainer" style="display: none;">
+            <form id="additionalForm" onsubmit="submitAdditionalForm(event)">
+              <label for="homeName">Nazwa Domu:</label>
+              <input type="text" id="homeName" name="homeName" required maxlength="100" /><br />
+        
+              <label for="homeAddress">Adres Domu:</label>
+              <input type="text" id="homeAddress" name="homeAddress" required maxlength="200" /><br />
+        
+              <label for="phoneNumber">Numer Telefonu:</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" required /><br />
+        
+              <input type="submit" value="Dodaj Dom" />
+            </form>
+          </div>
+        </div>
       </div>
     </div>
+
   </body>
 </html>
