@@ -47,6 +47,7 @@ function showSubpage(pageID) {
       item.style.display = "block";
 
       if(pageID === 'zakladka3-content') {
+        toggleSubmenu('side-bar');
         const topbar = document.querySelector('.top-bar-left');
         const title = document.querySelector('.bar-title');
         const subsites = document.querySelectorAll('.submenu .subsite');
