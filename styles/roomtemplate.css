@@ -175,3 +175,22 @@ li button {
 .device .remove-device-button:hover {
   background-color: #b51f1f;
 }
+
+.time-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.time-container label {
+  font-size: 1em;
+}
+
+.start-time-input,
+.end-time-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
