@@ -50,16 +50,6 @@ function submitForm() {
   descriptionInput.value = "";
   appointmentInput.value = "";
 
-  if (activeCheckbox) {
-    activeCheckbox.checked = false;
-    activeCheckbox = null;
-  }
-
-  var activePlanElement = document.getElementById("active-plan");
-  var daysLeftElement = document.getElementById("days-left");
-  activePlanElement.textContent = "Brak";
-  daysLeftElement.textContent = "0";
-
   setTimeout(function () {
     document.getElementById('notify').style.display = 'none';
   }, 3000);
@@ -115,3 +105,24 @@ function displayAdditionalFormData(homeName, homeAddress, phoneNumber) {
   document.getElementById('displayAdditionalFormData').style.display ='block';
   displayElement.innerHTML = displayHTML;
 }
+
+// Odczytywanie aktualnego trybu z localStorage
+const savedDarkMode = localStorage.getItem("darkMode");
+const body = document.body;
+
+if (savedDarkMode === "true") {
+  body.classList.add("dark-mode");
+}
+
+window.addEventListener("storage", function (event) {
+  if (event.key === "darkMode") {
+    const updatedDarkMode = localStorage.getItem("darkMode");
+    const body = document.body;
+
+    if (updatedDarkMode === "true") {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
+  }
+});

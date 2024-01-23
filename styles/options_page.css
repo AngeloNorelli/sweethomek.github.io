@@ -6,25 +6,30 @@ body {
   align-items: center;
   justify-content: center;
   /* background-color: #f0f0f0; nie był potrzebny i przeszkadzał tłu całej strony*/
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 /* Caly IFrame */
 .options-container {
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 90%;
   height: 90%;
   max-width: 90vw;
-  min-height: 115vh;
+  /*min-height: 115vh;*/
   text-align: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   margin: auto;
+}
+
+.dark-mode .options-container {
+  color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(232, 232, 232, 0.1);
 }
 
 /* Lewa kolumna */
@@ -48,7 +53,10 @@ body {
 
 .notify-container h3 {
   text-align: left;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 /* formualarz kontaktowy*/
@@ -102,7 +110,7 @@ input[type="button"]:focus {
 }
 
 input[type="button"] {
-  background-color: rgba(57, 169, 177, 0.459);
+  background-color: rgba(57, 169, 177, 0.664);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -176,7 +184,7 @@ input[type="button"]:hover {
 }
 
 .switch input:checked + .slider {
-  background-color: #2196f3;
+  background-color: rgba(57, 169, 177, 0.664);
 }
 
 .switch input:checked + .slider:before {
@@ -244,7 +252,7 @@ input[type="button"]:hover {
 }
 
 input[type="button"], button {
-  background-color: #4CAF50;
+  background-color: rgba(57, 169, 177, 0.664);
   color: #fff;
   cursor: pointer;
   border: none;
@@ -255,11 +263,11 @@ input[type="button"], button {
 }
 
 input[type="button"]:hover, button:hover {
-  background-color: #45a049;
+  background-color: rgba(57, 169, 177, 0.445);
 }
 
 .card-button button{
-  background-color: #4CAF50;
+  background-color: rgba(57, 169, 177, 0.664);
   color: #fff;
   padding: 15px 20px;
   border: none;
@@ -273,7 +281,7 @@ input[type="button"]:hover, button:hover {
 
 
 .card-button button:hover{
-  background-color: #45a049;
+  background-color: rgba(57, 169, 177, 0.445);
   color: #fff;
   padding: 15px 20px;
   border: none;
@@ -303,6 +311,10 @@ input[type="button"]:hover, button:hover {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+
+.dark-mode .modal-content {
+  background-color: #888;
 }
 
 .close {
@@ -351,6 +363,10 @@ input[type="button"]:hover, button:hover {
   background-color: white;
 }
 
+.dark-mode #additionalForm {
+  background-color: #888;
+}
+
 #additionalForm label {
   display: block;
   margin-bottom: 3px;
@@ -369,7 +385,7 @@ input[type="button"]:hover, button:hover {
 
 
 #additionalForm input[type="submit"] {
-  background-color: #4caf50;
+  background-color: rgba(57, 169, 177, 0.664);
   color: white;
   cursor: pointer;
   padding: 10px;
@@ -377,7 +393,7 @@ input[type="button"]:hover, button:hover {
 }
 
 #additionalForm input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: rgba(57, 169, 177, 0.445);
 }
 
 
@@ -416,4 +432,10 @@ input[type="button"]:hover, button:hover {
   displayAdditionalFormData{
     max-height: 3vh;
   }
+}
+
+.notify-description {
+  color: #a3a3a3;;
+  margin-left: 10px;
+  font-size: 13px;
 }

@@ -108,11 +108,11 @@ const devices = [
     onClick: () => toggleDevice("oswietlenie"),
   },
   {
-    id: "budzik",
-    name: "Budzik",
+    id: "piekarnik",
+    name: "Piekarnik",
     icon: "access_alarm",
     time: true,
-    onClick: () => toggleDevice("budzik"),
+    onClick: () => toggleDevice("piekarnik"),
   },
   {
     id: "kosiarka",
