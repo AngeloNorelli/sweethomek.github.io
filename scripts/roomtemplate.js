@@ -95,10 +95,10 @@ const devices = [
     onClick: () => toggleDevice("alarm"),
   },
   {
-    id: "ogrodzenie",
-    name: "Ogrodzenie",
-    icon: "local_florist",
-    onClick: () => toggleDevice("ogrodzenie"),
+    id: "brama",
+    name: "Brama",
+    icon: "key",
+    onClick: () => toggleDevice("brama"),
   },
   {
     id: "oswietlenie",
@@ -203,7 +203,9 @@ function createDeviceButton(device) {
 
     // Append the containers to the button
     button.appendChild(startContainer);
-    button.appendChild(endContainer);
+    if (!(device.id == "budzik")) {
+      button.appendChild(endContainer);
+    }
   }
 
   button.innerHTML += `<i class="material-icons">${device.icon}</i>`;
