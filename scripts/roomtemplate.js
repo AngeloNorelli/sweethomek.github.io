@@ -166,48 +166,6 @@ function createDeviceButton(device) {
     button.classList.add("btn-off");
   }
 
-  if (device.time) {
-    // Container for start time
-    const startContainer = document.createElement("div");
-    startContainer.className = "time-container";
-
-    // Label for start time
-    const startLabel = document.createElement("label");
-    startLabel.textContent = "Start:";
-    startLabel.htmlFor = "startTime";
-    startContainer.appendChild(startLabel);
-
-    // Start time input
-    const startTimeInput = document.createElement("input");
-    startTimeInput.type = "time";
-    startTimeInput.id = "startTime";
-    startTimeInput.className = "start-time-input";
-    startContainer.appendChild(startTimeInput);
-
-    // Container for end time
-    const endContainer = document.createElement("div");
-    endContainer.className = "time-container";
-
-    // Label for end time
-    const endLabel = document.createElement("label");
-    endLabel.textContent = "Stop:";
-    endLabel.htmlFor = "endTime";
-    endContainer.appendChild(endLabel);
-
-    // End time input
-    const endTimeInput = document.createElement("input");
-    endTimeInput.type = "time";
-    endTimeInput.id = "endTime";
-    endTimeInput.className = "end-time-input";
-    endContainer.appendChild(endTimeInput);
-
-    // Append the containers to the button
-    button.appendChild(startContainer);
-    if (!(device.id == "budzik")) {
-      button.appendChild(endContainer);
-    }
-  }
-
   button.innerHTML += `<i class="material-icons">${device.icon}</i>`;
   button.onclick = device.onClick;
   return button;
@@ -237,7 +195,11 @@ function addButtonToDeviceDiv(deviceId) {
       const button = createDeviceButton(device);
       // remove device button
       const removeDeviceButton = createRemoveDeviceButton(device);
+      //time pickers
+      const timePickers = createTimePickers(device);
+      timePickers.style.marginTop = "5px";
       deviceDiv[0].appendChild(button);
+      deviceDiv[0].appendChild(timePickers);
       deviceDiv[0].appendChild(removeDeviceButton);
     } else {
       console.error(`Device with ID ${deviceId} not found.`);
@@ -310,4 +272,50 @@ function removeDevice(deviceId) {
   } else {
     console.error(`Device div with ID ${deviceId} not found.`);
   }
+}
+
+function createTimePickers(device) {
+  const timePickersDiv = document.createElement("div");
+  timePickersDiv.className = "time-pickers";
+
+  if (device.time) {
+    // Container for start time
+    const startContainer = document.createElement("div");
+    startContainer.className = "time-container";
+    const startLabel = document.createElement("label");
+    startLabel.textContent = "Start:";
+    startLabel.htmlFor = "startTime";
+    startLabel.style.marginRight = "5px"; // Right margin for label
+    startContainer.appendChild(startLabel);
+
+    const startTimeInput = document.createElement("input");
+    startTimeInput.type = "time";
+    startTimeInput.id = "startTime";
+    startTimeInput.className = "start-time-input";
+    startContainer.appendChild(startTimeInput);
+
+    timePickersDiv.appendChild(startContainer);
+
+    // Container for end time, only if device id is not "budzik"
+    if (device.id !== "budzik") {
+      const endContainer = document.createElement("div");
+      endContainer.className = "time-container";
+
+      const endLabel = document.createElement("label");
+      endLabel.textContent = "Stop:";
+      endLabel.htmlFor = "endTime";
+      endLabel.style.marginRight = "5px"; // Right margin for label
+      endContainer.appendChild(endLabel);
+
+      const endTimeInput = document.createElement("input");
+      endTimeInput.type = "time";
+      endTimeInput.id = "endTime";
+      endTimeInput.className = "end-time-input";
+      endContainer.appendChild(endTimeInput);
+
+      timePickersDiv.appendChild(endContainer);
+    }
+  }
+
+  return timePickersDiv;
 }
