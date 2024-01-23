@@ -29,9 +29,11 @@
             </li>
             <% if (roomType === "ogrod") { %>
 
-            <li data-room="<%= pageName %>" id="brama">
-              Brama
-              <button onclick="addDevice('brama')" class="add_button">+</button>
+            <li data-room="<%= pageName %>" id="ogrodzenie">
+              Brama Wejściowa
+              <button onclick="addDevice('ogrodzenie')" class="add_button">
+                +
+              </button>
             </li>
             <% } %>
 
@@ -69,10 +71,10 @@
                 +
               </button>
             </li>
-            <% } %> <% if (roomType !== "ogrod") { %>
-            <li data-room="<%= pageName %>" id="budzik">
-              Budzik
-              <button onclick="addDevice('budzik')" class="add_button">
+            <% } %> <% if (roomType !== "ogrod" && roomType !== "pokoj") { %>
+            <li data-room="<%= pageName %>" id="piekarnik">
+              Piekarnik
+              <button onclick="addDevice('piekarnik')" class="add_button">
                 +
               </button>
             </li>

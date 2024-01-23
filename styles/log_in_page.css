@@ -27,10 +27,25 @@ input {
 }
 
 button {
-    background-color: rgba(88, 244, 255, 0.692);
+    background-color: rgba(128, 128, 128, 1.0);
     color: #ffffff;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(99, 99, 99);
+    color: rgba(88, 244, 255, 0.692);
+}
+
+.dark-mode button {
+    background-color: rgba(88, 244, 255, 0.692);
+    color: #fff;
+}
+
+.dark-mode button:hover {
+    background-color: rgb(88, 244, 255);
+    color: #fff;
 }
