@@ -432,9 +432,14 @@ input[type="button"]:hover, button:hover {
   displayAdditionalFormData{
     max-height: 3vh;
   }
+  .notify-description {
+    margin-bottom: 5px;
+  }
 }
 
 .notify-description {
+  display: flex;
+  text-align: left;
   color: #a3a3a3;;
   margin-left: 10px;
   font-size: 13px;
